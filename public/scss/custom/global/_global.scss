@@ -1,0 +1,45 @@
+.media-scroll {
+    height: 68vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-padding-right: 10px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+#sortable {
+  .accordion-collapse {
+    top: -4px;
+    position: relative;
+    border: 2px solid var(--bs-gray-900);
+    padding: 1.5rem;
+  }
+}
+
+.iq-media-images {
+  width: 10rem;
+  text-align: center;
+  .media-title {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+div:where(.swal2-container) {
+  z-index: 9999 !important;
+}
+
+.swal2-container{
+  .swal2-html-container{
+    color: var(--bs-body-color);
+  }
+}
+
+.select2-container:has(.select2-dropdown){
+  width: Auto !important;
+}

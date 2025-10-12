@@ -1,0 +1,13 @@
+{
+    "name": "Season",
+    "alias": "season",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Season\\Providers\\SeasonServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

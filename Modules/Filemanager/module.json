@@ -1,0 +1,13 @@
+{
+    "name": "Filemanager",
+    "alias": "filemanager",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Filemanager\\Providers\\FilemanagerServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

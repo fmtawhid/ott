@@ -1,0 +1,44 @@
+@mixin customizer-color-variables($color-name, $color-value) {
+    --#{$variable-prefix}#{$color-name}: #{$color-value};
+    --#{$variable-prefix}#{$color-name}-rgb: #{to-rgb($color-value)};
+    --#{$variable-prefix}#{$color-name}-bg-subtle: #{tint-color($color-value, 80%)};
+    --#{$variable-prefix}#{$color-name}-border-subtle: #{tint-color($color-value, 60%)};
+    --#{$variable-prefix}link-color-rgb: var(--#{$variable-prefix}#{$color-name}-rgb);
+    --#{$variable-prefix}#{$color-name}-hover-bg: #{shade-color($color-value, 20%)};
+    --#{$variable-prefix}#{$color-name}-hover-border: #{shade-color($color-value, 30%)};
+    --#{$variable-prefix}#{$color-name}-active-bg: #{shade-color($color-value, 20%)};
+    --#{$variable-prefix}#{$color-name}-active-border: #{shade-color($color-value, 30%)};
+    --#{$variable-prefix}#{$color-name}-shade-90: #{tint-color($color-value, 90%)};
+    --#{$variable-prefix}#{$color-name}-shade-80: #{tint-color($color-value, 80%)};
+    --#{$variable-prefix}#{$color-name}-shade-60: #{tint-color($color-value, 60%)};
+    --#{$variable-prefix}#{$color-name}-shade-40: #{tint-color($color-value, 40%)};
+    --#{$variable-prefix}#{$color-name}-shade-20: #{tint-color($color-value, 20%)};
+    --#{$variable-prefix}#{$color-name}-shade-10: #{tint-color($color-value, 10%)};
+    --#{$variable-prefix}#{$color-name}-tint-90: #{shade-color($color-value, 90%)};
+    --#{$variable-prefix}#{$color-name}-tint-80: #{shade-color($color-value, 80%)};
+    --#{$variable-prefix}#{$color-name}-tint-60: #{shade-color($color-value, 60%)};
+    --#{$variable-prefix}#{$color-name}-tint-40: #{shade-color($color-value, 40%)};
+    --#{$variable-prefix}#{$color-name}-tint-20: #{shade-color($color-value, 20%)};
+    --#{$variable-prefix}#{$color-name}-tint-10: #{shade-color($color-value, 10%)};
+
+    &[data-#{$variable-prefix}theme="dark"] {
+        --#{$variable-prefix}#{$color-name}-text-emphasis: #{tint-color($color-value, 40%)};
+        --#{$variable-prefix}#{$color-name}-bg-subtle: #{shade-color($color-value, 80%)};
+    }
+}
+
+@each $color, $value in $custom-colors {
+    @if $color == 'default' {
+        :root {
+            @each $name, $hax-value in $value {
+                @include customizer-color-variables($name, $hax-value);
+            }
+        }
+    } @else {
+        [data-#{$variable-prefix}theme-color="#{$color}"] {
+            @each $name, $hax-value in $value {
+                @include customizer-color-variables($name, $hax-value);
+            }
+        }
+    }
+}

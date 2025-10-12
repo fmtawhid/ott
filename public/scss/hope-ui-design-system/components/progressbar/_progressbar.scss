@@ -1,0 +1,91 @@
+// Circle Progress
+
+.circle-progress-value {
+	stroke-width: 8px;
+}
+
+.circle-progress-circle {
+	stroke-width: 4px;
+}
+
+.circle-progress {
+	&>svg {
+		height: 60px;
+		width: 60px;
+	}
+}
+
+.circle-progress {
+	&.sidebar-circle {
+		&>svg {
+			height: 130px;
+			width: 130px;
+		}
+	}
+}
+
+.card-slide {
+	.card-slie-arrow {
+		left: 2.5rem;
+		right: 0px;
+		width: 1.5rem;
+		height: 1.5rem;
+		position: absolute;
+		top: 2.9rem;
+		object-fit: cover;
+	}
+}
+
+.icon-pill {
+	a {
+		box-shadow: 0 4px 8px 0px rgba(76, 128, 178, 0.2);
+	}
+}
+
+.circle-progress-primary {
+	svg {
+		.circle-progress-value {
+			stroke: var(--bs-primary);
+		}
+	}
+}
+
+.circle-progress-secondary {
+	svg {
+		.circle-progress-value {
+			stroke: var(--bs-secondary);
+		}
+	}
+}
+
+.circle-progress-success {
+	svg {
+		.circle-progress-value {
+			stroke: var(--bs-success);
+		}
+	}
+}
+
+.circle-progress-danger {
+	svg {
+		.circle-progress-value {
+			stroke: var(--bs-danger);
+		}
+	}
+}
+
+.circle-progress-warning {
+	svg {
+		.circle-progress-value {
+			stroke: var(--bs-warning);
+		}
+	}
+}
+
+.circle-progress-info {
+	svg {
+		.circle-progress-value {
+			stroke: var(--bs-info);
+		}
+	}
+}

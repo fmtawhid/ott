@@ -1,0 +1,9 @@
+.modal-footer {
+    padding: $modal-inner-padding * .5;
+    .btn-secondary,
+    .btn-dark  {
+      background: var(--bs-body-bg);
+      border-color: var(--bs-body-bg);
+    }
+
+}

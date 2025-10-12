@@ -1,0 +1,56 @@
+.btn {
+    &.btn-border {
+        color: var(--bs-gray);
+        border: $border-width * 1 solid var(--bs-border-color);
+        padding: $spacer*.5 $spacer;
+        &:hover {
+            background: transparent;
+            border-color: var(--#{$variable-prefix}primary) !important;
+            color: var(--#{$variable-prefix}primary);
+        }
+        .btn-check:checked + &,
+        .btn-check:active + &,
+        &:active, &.active{
+            background: var(--#{$variable-prefix}primary);
+            color: var(--#{$variable-prefix}white);
+            border-color: var(--#{$variable-prefix}primary);
+            &.bg-transparent{
+                color: var(--#{$variable-prefix}primary);
+            }
+        }
+    }
+}
+.invalid-feedback {
+  color: var(--bs-primary);
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  border-color: var(--bs-primary);
+}
+
+.was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
+  background-color: var(--bs-primary);
+}
+
+.was-validated .form-check-input:valid, .form-check-input.is-valid {
+  border-color: var(--bs-primary);
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  border-color: transparent;
+  background-image: none;
+}
+
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  border-color: var(--bs-primary);
+}
+
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+  border-color: var(--bs-primary);
+}
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: var(--bs-body-color);
+}

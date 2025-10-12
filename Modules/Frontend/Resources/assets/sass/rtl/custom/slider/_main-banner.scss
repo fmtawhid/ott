@@ -1,0 +1,16 @@
+// main banner
+.main-banner {
+    .slick-dots {
+        right: 6.25rem;
+        left: auto;
+    }
+}
+
+.movie-tag-list {
+    li {
+        &::after {
+            right: auto;
+            left: -18px;
+        }
+    }
+}

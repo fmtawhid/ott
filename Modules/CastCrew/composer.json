@@ -1,0 +1,31 @@
+{
+    "name": "nwidart/castcrew",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\CastCrew\\": "",
+            "Modules\\CastCrew\\App\\": "app/",
+            "Modules\\CastCrew\\Database\\Factories\\": "database/factories/",
+            "Modules\\CastCrew\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\CastCrew\\Tests\\": "tests/"
+        }
+    }
+}

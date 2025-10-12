@@ -1,0 +1,113 @@
+.footer-stcky-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    background: var(--bs-body-bg);
+    padding: 1.125rem 2rem;
+    border-top: 1px solid var(--bs-border-color);
+    display: none;
+    .nav-item {
+        i {
+            font-size: 1.2rem;
+        }
+        .nav-link {
+            font-size: .625rem;
+            .item-name {
+                display: block;
+            }
+        }
+
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .footer-stcky-menu {
+        display: none;
+    }
+    .footer-float-menu {
+        display: none;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+  .footer-stcky-menu {
+    padding: 1.125rem 1rem;
+  }
+}
+
+.footer-float-menu {
+    position: fixed;
+    bottom: 5rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 26px;
+    z-index: 1000;
+    display: none;
+
+    .footer-float-menu-open-button {
+        z-index: 2;
+        transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+        transition-duration: .4s;
+        transform: scale(1.1) translateZ(0);
+    }
+
+    .footer-float-menu-item,
+    .footer-float-menu-open-button {
+        font-size: 12px;
+        font-weight: 500;
+        border: unset;
+        background: var(--bs-white);
+        color: var(--bs-dark);
+        border-radius: 34px;
+        padding: .375rem 1.25rem;
+        margin-left: -30px;
+        position: fixed;
+        text-align: center;
+        line-height: 22px;
+        cursor: pointer;
+        transition: transform 0.2s ease-out;
+        &:hover {
+            background: var(--bs-primary);
+            color: var(--bs-white);
+        }
+    }
+
+    .footer-float-menu-item {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+
+    .footer-float-menu-open {
+        &:checked {
+            ~.footer-float-menu-item {
+                opacity: 1;
+                visibility: visible;
+                transition-timing-function: cubic-bezier(.935, 0, .34, 1.33);
+
+                &:nth-child(5) {
+                    transition-duration: .58s;
+                    -webkit-transition-duration: .58s;
+                    transform: translate3d(0, -150.33095px, 0)
+                }
+
+                &:nth-child(4) {
+                    transition-duration: .68s;
+                    -webkit-transition-duration: .68s;
+                    transform: translate3d(0, -100.33095px, 0)
+                }
+
+                &:nth-child(3) {
+                    transition-duration: .78s;
+                    -webkit-transition-duration: .78s;
+                    transform: translate3d(-.25084px, -50.9997px, 0);
+                }
+            }
+        }
+    }
+}
+

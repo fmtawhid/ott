@@ -1,0 +1,13 @@
+{
+    "name": "Constant",
+    "alias": "constant",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Constant\\Providers\\ConstantServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

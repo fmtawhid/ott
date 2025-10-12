@@ -1,0 +1,36 @@
+.iq-social-comment-text{
+    .form-control{
+        padding-left: 7rem;
+        padding-right: $input-padding-x;
+    }
+    .iq-social-comment-attagement{
+        left: 1rem;
+        right: unset;
+    }
+}
+
+.apexcharts-legend-text {
+    padding-left: 0;
+    padding-right: 5px;
+    margin-left: 0;
+}
+
+.apexcharts-legend-marker {
+    left: 0 !important;
+}
+
+.dropdown {
+    .dropdown-toggle {
+        &::after {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.btn-toolbar {
+    .input-group {
+        .input-group-text.pe-0 {
+            padding-right: 1rem !important;
+        }
+    }
+}

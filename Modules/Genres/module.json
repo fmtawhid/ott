@@ -1,0 +1,11 @@
+{
+    "name": "Genres",
+    "alias": "genres",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Genres\\Providers\\GenresServiceProvider"
+    ],
+    "files": []
+}

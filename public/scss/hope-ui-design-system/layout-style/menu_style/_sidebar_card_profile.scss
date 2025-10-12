@@ -1,0 +1,107 @@
+.sidebar-profile-action {
+    .btn-action {
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.sidebar-mini {
+    .sidebar-profile-card {
+        .sidebar-profile-body {
+            margin-left: 0.75rem;
+
+            .sidebar-profile-detail {
+                display: none;
+            }
+        }
+
+        .sidebar-profile-action {
+            padding-left: 0.5rem;
+
+            .btn-action {
+                &:not(:last-child) {
+                    margin-right: 0;
+                    margin-bottom: 1rem * .75;
+                }
+            }
+        }
+    }
+}
+
+.sidebar {
+
+    &.sidebar-dark,
+    &.sidebar-color {
+        .sidebar-profile-card {
+            .sidebar-profile-body {
+                .sidebar-profile-detail {
+                    h6 {
+                        color: #d3d5d9;
+                    }
+                }
+            }
+        }
+
+        .logo-main {
+
+            .logo-normal,
+            .logo-mini {
+                opacity: 0;
+                display: none;
+            }
+
+            .dark-normal {
+                opacity: 1;
+                display: block;
+            }
+        }
+
+        &.sidebar-mini {
+            .logo-main {
+                .dark-normal {
+                    opacity: 0;
+                    display: none;
+                }
+
+                .dark-mini {
+                    opacity: 1;
+                    display: block;
+                }
+            }
+        }
+
+        &.sidebar-hover {
+            &.sidebar-mini {
+                &:hover {
+                    .logo-main {
+                        .logo-normal {
+                            opacity: 0;
+                            display: none;
+                        }
+
+                        .dark-normal {
+                            opacity: 1;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.sidebar-color {
+        .sidebar-profile-card {
+            .sidebar-profile-body {
+                .sidebar-profile-action {
+                    .btn-action {
+                        &.btn-primary {
+                            color: var(--#{$variable-prefix}primary);
+                            background-color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

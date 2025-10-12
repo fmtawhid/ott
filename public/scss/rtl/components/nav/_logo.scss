@@ -1,0 +1,28 @@
+.sidebar {
+    &.sidebar-mini{
+        .logo-mini{
+            // transform: translateX(75px);
+        }
+    } 
+}
+
+
+&[data-bs-theme="dark"]{
+    .sidebar{
+        .logo-main{
+            .logo-normal{
+                &.dark-normal{
+                    display: block;
+                }
+            }
+        }
+
+        &.sidebar-mini{
+            .dark-mini{
+                &.logo-mini{
+                    display: block;
+                }
+            }
+        }
+    }
+}

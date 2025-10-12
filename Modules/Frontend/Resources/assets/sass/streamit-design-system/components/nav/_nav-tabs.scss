@@ -1,0 +1,72 @@
+.nav-tabs {
+    @include border-radius($nav-tabs-border-radius);
+    margin-bottom: .5rem;
+
+    .nav-link {
+        @include border-radius($nav-tabs-border-radius);
+    }
+}
+
+.nav-pills {
+    @include border-radius($nav-pills-border-radius);
+    margin-bottom: .5rem;
+}
+
+.custom-nav-slider {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    flex-grow: 1;
+}
+
+.left,
+.right {
+    line-height: normal;
+    cursor: pointer;
+}
+
+.season-tabs-inner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: .5rem;
+}
+
+.season-tab{
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+    gap: .5rem 1rem;
+
+    .nav-item{
+        flex-shrink: 0;
+
+        .nav-link{
+            padding: .5rem 1rem;
+            background-color: var(--bs-dark);
+            color: var(--bs-body-color);
+            border-radius: var(--bs-border-radius);
+
+            &.active, &:hover{
+                background-color: var(--bs-primary);
+                color: var(--bs-heading-color);
+            }
+        }
+    }
+}
+
+// Tab Animation
+.tab-content {
+    &.iq-tab-fade-up {
+        .tab-pane.fade {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+
+            &.active.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

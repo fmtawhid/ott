@@ -1,0 +1,13 @@
+{
+    "name": "World",
+    "alias": "world",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\World\\Providers\\WorldServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

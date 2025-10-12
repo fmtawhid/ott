@@ -1,0 +1,40 @@
+.comingsoon-card{
+    position: relative;
+    border-radius: var(--bs-border-radiusd);
+    padding: 1.25rem;
+    height: 330px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+
+    &::after{
+        content: "";
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(360deg, #000E17 4.65%, rgba(0, 9, 15, 0.8) 20%, rgba(0, 0, 0, 0) 50%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .comingsoon-meta-list{
+        .meta{
+            display: inline-block;
+            font-size: .875rem;
+            font-weight: 500;
+            color: var(--bs-white);
+            border-radius: var(--bs-border-radius);
+            padding: 7px 12px;
+            background-color: var(--bs-gray-800);
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .comingsoon-card {
+        padding: 1.5rem;
+    }
+}

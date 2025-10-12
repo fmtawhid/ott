@@ -1,0 +1,12 @@
+
+.nav{
+    .search-input{
+        &.input-group{
+            &:focus-within{
+                .input-group-text, .form-control{
+                    border-color: var(--#{$variable-prefix}primary-tint-40);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.season-card {
+    .season-meta-list {
+        .season-meta-list-item {
+            &::after {
+                right: auto;
+                left: -22px;
+            }
+        }
+    }
+
+    .season-watch-btn {
+        right: auto;
+        left: 8px;
+    }
+} 

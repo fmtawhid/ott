@@ -1,0 +1,28 @@
+.padding-right-0 {
+  padding-left: 0 !important;
+  padding-right: 6.25rem !important;
+}
+
+.view-all-button {
+  i {
+    &::before{
+      content: "\e138";
+    }
+  }
+}
+
+.vjs-quality-selector {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}  
+  
+@media (max-width: 1399.98px) {
+    .padding-right-0 {
+        padding-right:  2rem !important;
+    }
+}
+@include media-breakpoint-down(md) {
+    .padding-right-0 {
+        padding-right:  1rem !important;
+    }
+}

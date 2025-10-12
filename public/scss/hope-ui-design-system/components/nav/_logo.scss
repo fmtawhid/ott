@@ -1,0 +1,58 @@
+[data-bs-theme="dark"] {
+    .sidebar {
+        .logo-main {
+            .logo-normal.dark-normal {
+                min-height: 35px;
+                height: 35px;
+                opacity: 1;
+                display: block;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .logo-mini.dark-mini {
+                opacity: 0;
+                display: none;
+                min-height: 35px;
+                height: 35px;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+
+        .logo-main {
+            .logo-mini {
+                min-height: 35px;
+                height: 35px;
+                transition: all 0.3s ease-in-out;
+                opacity: 0;
+                display: none;
+            }
+
+            .logo-normal {
+                min-height: 35px;
+                height: 35px;
+                opacity: 0;
+                display: none;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+
+        &.sidebar-mini {
+            .dark-mini.logo-mini {
+                min-height: 35px;
+                height: 35px;
+                opacity: 1;
+                display: block;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .dark-normal.logo-normal {
+                min-height: 35px;
+                height: 35px;
+                opacity: 0;
+                display: none;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+
+}

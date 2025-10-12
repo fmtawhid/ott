@@ -1,0 +1,10 @@
+/*!
+ * Snackbar v0.1.14
+ * http://polonel.com/Snackbar
+ *
+ * Copyright 2018 Chris Brame and other contributors
+ * Released under the MIT license
+ * https://github.com/polonel/Snackbar/blob/master/LICENSE
+ */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */

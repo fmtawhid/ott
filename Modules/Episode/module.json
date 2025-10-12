@@ -1,0 +1,13 @@
+{
+    "name": "Episode",
+    "alias": "episode",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Episode\\Providers\\EpisodeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

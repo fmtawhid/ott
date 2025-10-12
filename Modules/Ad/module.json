@@ -1,0 +1,13 @@
+{
+    "name": "Ad",
+    "alias": "ad",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Ad\\Providers\\AdServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

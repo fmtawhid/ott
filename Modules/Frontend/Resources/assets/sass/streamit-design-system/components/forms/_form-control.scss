@@ -1,0 +1,40 @@
+.input-style-text {
+    background-color: transparent;
+    color: var(--bs-heading-color);
+}
+
+.input-group {
+    .form-control {
+        border-right: 0;
+
+        &+ .input-group-text {
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            border-left: 0;
+        }
+
+        &:focus {
+            &+ .input-group-text {
+                border-color: var(--bs-primary);
+            }
+        }
+    }
+}
+
+.input-style-box {
+    background-color: transparent;
+    color: var(--bs-heading-color);
+
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+input::-internal-autofill-selected,
+input::-webkit-autofill:focus,
+input::-webkit-autofill:active,
+input::-webkit-autofill:focus,
+input::-webkit-autofill:hover {
+    color: var(--bs-body-color);
+    background-color: var(--bs-gray-900);
+    border-color: transparent;
+}

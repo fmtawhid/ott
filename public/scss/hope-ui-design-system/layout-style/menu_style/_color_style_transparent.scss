@@ -1,0 +1,15 @@
+
+.sidebar {
+    &.sidebar-transparent {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+@include media-breakpoint-down(xl) {
+    .sidebar{
+        &.sidebar-transparent {
+            background-color: var(--bs-gray-900);
+        }
+    }
+}

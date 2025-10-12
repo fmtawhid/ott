@@ -1,0 +1,116 @@
+.iq-search-bar {
+    .search-submit {
+        right: auto;
+        left: 0;
+    }
+
+    &:has(.remove-search.d-none) {
+        .form-control {
+            padding-left: 2.8em !important;
+            padding-right: 1.5rem !important;
+        }
+    }
+}
+
+.iq-search-bar {
+    .search-submit {
+        border-left: none;
+        border-right: .8px solid var(--bs-border-color-translucent);
+    }
+}
+
+.search-box {
+    .form-group {
+        animation: scale-out-hor-left 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+}
+
+.search-box a.show+ul li .form-group {
+    animation: scale-in-hor-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes scale-in-hor-left {
+    0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-hor-left {
+    0% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes scale-out-hor-left {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes scale-out-hor-left {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        opacity: 1;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    header {
+        .navbar-nav {
+            .search-box {
+                .dropdown-menu {
+                    right: auto;
+                    left: 0;
+                    transform-origin: 0 100%;
+                }
+            }
+        }
+    }
+}

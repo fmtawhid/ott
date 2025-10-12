@@ -1,0 +1,21 @@
+.review-detail {
+    padding: 30px;
+    background-color: var(--bs-gray-900);
+
+    .user-img {
+        height: 4.375rem;
+        width: 4.375rem;
+        min-width: 4.375rem;
+        object-fit: cover;
+    }
+}
+
+.review-list-inner {
+    li {
+        margin-bottom: 30px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

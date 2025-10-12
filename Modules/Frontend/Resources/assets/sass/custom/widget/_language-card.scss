@@ -1,0 +1,36 @@
+.language-card {
+    background-color: var(--bs-gray-900);
+    padding: 20px;
+
+    .language-inner {
+        background-color: var(--bs-border-color);
+        color: var(--bs-heading-color);
+        font-weight: $font-weight-medium;
+        line-height: 40px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        text-align: center;
+    }
+
+    .language-title {
+        color: var(--bs-heading-color);
+        font-weight: $font-weight-medium;
+        font-size: 1rem;
+    }
+}
+
+@include media-breakpoint-down(sm) { 
+    .language-card {
+        padding: 10px;
+        .language-inner {
+            line-height: 35px;
+            height: 35px;
+            width: 35px;
+            font-size: .8rem;
+        }
+        .language-title {
+            font-size: .8rem;
+        }
+    }
+}

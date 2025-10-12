@@ -1,0 +1,187 @@
+.iq-banner {
+    &.hide {
+        .iq-navbar-header {
+            display: none;
+        }
+    }
+    .iq-navbar-header {
+        color: $white;
+        .iq-container {
+            padding: calc(var(--bs-gutter-x, 1rem) * 2);
+            .breadcrumb {
+                li {
+                    color: var(--bs-body-color);
+                    font-size: 14px;
+                    font-weight: 500;
+                    a {
+                        color: var(--bs-body-color);
+                    }
+                    &.active {
+                        color: var(--bs-heading-color);
+                        a {
+                            color: var(--bs-heading-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navs-sticky.menu-sticky + .iq-navbar-header {
+    padding-top: 5em;
+}
+
+@include media-breakpoint-up(xl) {
+    .iq-banner{
+        &.default, &.navs-bg-color{
+            .iq-navbar{
+                &.navs-transparent, &.nav-glass{
+                    .product-offcanvas{
+                        .breadcrumb-title{
+                            color: $white;
+                            h6{
+                                color: $white;
+                            }
+                        }
+                        .iq-nav-menu{
+                            >.nav-item{
+                                >.menu-arrow{
+                                    color: $white;
+                                }
+                                &.active{
+                                    >.menu-arrow{
+                                        color: var(--#{$variable-prefix}primary);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.theme-color-purple-img{
+    display: none;
+}
+.theme-color-pink-img{
+    display: none;
+}
+.theme-color-green-img{
+    display: none;
+}
+.theme-color-yellow-img{
+    display: none;
+}
+.theme-color-blue-img{
+    display: none;
+}
+
+
+
+[data-bs-theme-color=color-1]{
+    .theme-color-purple-img{
+        display: inline-block;
+    }
+    .theme-color-pink-img{
+        display: none;
+    }
+    .theme-color-green-img{
+        display: none;
+    }
+    .theme-color-yellow-img{
+        display: none;
+    }
+    .theme-color-blue-img{
+        display: none;
+    }
+    .theme-color-default-img{
+        display: none;
+    }
+}
+
+[data-bs-theme-color=color-2]{
+    .theme-color-purple-img{
+        display: none;
+    }
+    .theme-color-pink-img{
+        display: none;
+    }
+    .theme-color-green-img{
+        display: none;
+    }
+    .theme-color-yellow-img{
+        display: none;
+    }
+    .theme-color-blue-img{
+        display: inline-block;
+    }
+    .theme-color-default-img{
+        display: none;
+    }
+}
+
+[data-bs-theme-color=color-3]{
+    .theme-color-purple-img{
+        display: none;
+    }
+    .theme-color-pink-img{
+        display: none;
+    }
+    .theme-color-green-img{
+        display: inline-block;
+    }
+    .theme-color-yellow-img{
+        display: none;
+    }
+    .theme-color-blue-img{
+        display: none;
+    }
+    .theme-color-default-img{
+        display: none;
+    }
+}
+
+[data-bs-theme-color=color-4]{
+    .theme-color-purple-img{
+        display: none;
+    }
+    .theme-color-pink-img{
+        display: none;
+    }
+    .theme-color-green-img{
+        display: none;
+    }
+    .theme-color-yellow-img{
+        display: inline-block;
+    }
+    .theme-color-blue-img{
+        display: none;
+    }
+    .theme-color-default-img{
+        display: none;
+    }
+}
+
+[data-bs-theme-color=color-5]{
+    .theme-color-purple-img{
+        display: none;
+    }
+    .theme-color-pink-img{
+        display: inline-block;
+    }
+    .theme-color-green-img{
+        display: none;
+    }
+    .theme-color-yellow-img{
+        display: none;
+    }
+    .theme-color-blue-img{
+        display: none;
+    }
+    .theme-color-default-img{
+        display: none;
+    }
+}

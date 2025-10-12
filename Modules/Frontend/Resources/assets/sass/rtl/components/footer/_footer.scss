@@ -1,0 +1,21 @@
+.footer {
+
+    .footer-menu {
+        
+        >li {
+
+            a {
+                padding-left: 0;
+                padding-right: 1rem;
+
+                &::before {
+                    right: -4px;
+                    left: auto;
+                    top: 50%;
+                }
+
+            }
+        }
+    }
+
+}

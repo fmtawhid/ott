@@ -1,0 +1,11 @@
+.offcanvas{
+    &.offcanvas-end {
+        right: auto;
+        left: 0;
+        transform: translateX(-100%);
+
+        &.show {
+            transform: none;
+        }
+    }
+}

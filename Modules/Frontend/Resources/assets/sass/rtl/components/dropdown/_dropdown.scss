@@ -1,0 +1,6 @@
+@include media-breakpoint-up(sm) {
+    .dropdown-menu-sm-end[data-bs-popper] {
+      right: auto;
+      left: 0;
+    }
+}

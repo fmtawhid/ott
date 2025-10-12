@@ -1,0 +1,43 @@
+[data-bs-theme=dark] {
+    .apexcharts-theme-light {
+        .apexcharts-tooltip {
+            background: var(--bs-card-bg);
+            border: 1px solid var(--bs-border-color);
+
+            .apexcharts-tooltip-title {
+                background: var(--bs-card-bg);
+                border: 1px solid var(--bs-border-color);
+            }
+        }
+    }
+
+    .apexcharts-title-text {
+        fill: var(--bs-white);
+    }
+
+    .apexcharts-yaxis-title {
+        .apexcharts-text.apexcharts-yaxis-title-text {
+            fill: var(--bs-white);
+        }
+    }
+
+    .iq-navbar {
+        .navbar-brand {
+            .logo-dark {
+                display: inline-block;
+            }
+
+            .logo-normal{
+                display: none;
+            }
+        }
+    }
+
+    .btn-white{
+        color: var(--bs-gray-900);
+    }
+
+    .text-dark{
+        color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+    }
+}

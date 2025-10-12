@@ -1,0 +1,34 @@
+.iq-qty-btn{
+    .btn{
+        &:focus{
+            box-shadow: unset;
+        }
+    }
+    .input-display{
+        width: 2.5rem;
+        cursor: text;
+        color: $input-focus-color;
+        &:hover{
+            color: $input-focus-color !important;
+            background: transparent !important;
+        }
+    }
+}
+
+.form-check-input{
+    cursor: pointer;
+}
+
+.iq-status-switch{
+    .form-check-input{
+        &:checked{
+            border-color: var(--#{$variable-prefix}info);
+            background-color: var(--#{$variable-prefix}info);
+        }
+        &:not(:checked){
+            border-color: var(--#{$variable-prefix}danger);
+            background-color: var(--#{$variable-prefix}danger);
+            background-image: escape-svg($form-switch-checked-bg-image),
+        }
+    }
+}

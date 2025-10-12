@@ -1,0 +1,359 @@
+
+.dark .table-striped > tbody > tr:nth-of-type(even) > * {
+  --bs-table-accent-bg: #181818 !important;
+}
+.multiselect-option.is-selected {
+  background: var(--bs-primary) !important ;
+}
+.multiselect-tag:hover {
+  background: var(--bs-primary) !important;
+}
+.multiselect-tag {
+  background: var(--bs-primary) !important;
+}
+
+.multiselect-option.is-pointed {
+  background: var(--bs-primary) !important;
+  color: #fff !important;
+}
+::selection {
+  background: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+::-moz-selection {
+  background: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+*::-moz-selection {
+  background: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+.form-disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.sorting_disabled.sorting_asc::after,
+.sorting_disabled.sorting_asc::before {
+  content: unset !important;
+}
+
+.sorting_disabled.sorting_asc {
+  padding-right: 0 !important;
+  width: 1% !important;
+}
+
+[dir="rtl"] .sorting_disabled.sorting_asc{
+  padding-right: 1.5rem !important;
+  padding-left: 0 !important;
+}
+
+.h-4 {
+  height: 4rem;
+}
+
+.ec-week .ec-toolbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  padding: 0 15px 15px;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+.ec-header {
+  display: flex;
+  flex-shrink: 0;
+  margin-top: 75px;
+  position: relative;
+}
+.ec.ec-week {
+  overflow-x: scroll;
+}
+.ec-header .ec-resource {
+  flex-direction: column;
+  min-width: 160px;
+}
+.ec-resource {
+  display: flex;
+  min-width: 160px;
+}
+
+.dropdown-sticky {
+  background-color: var(--bs-white);
+  box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+div#datatable_wrapper {
+  position: relative;
+}
+div.dataTables_wrapper div.dataTables_processing {
+  top: 105px !important;
+  left: 50%;
+  z-index: 9;
+}
+
+.dropdown-sticky:hover {
+  background-color: var(--bs-primary-shade-10);
+}
+
+.iq-dropdown .dropdown-menu {
+  border-radius: 0.6rem !important;
+}
+
+.dark .text-black {
+  color: #fff !important;
+}
+
+@media only screen and (max-width: 1366px) {
+  .ec-header {
+    overflow-x: scroll;
+  }
+}
+
+.iq-service-provider-dropdown:hover {
+  background-color: unset !important;
+}
+
+.mode-icons {
+  display: none;
+}
+.mode-icons.light-mode {
+  display: block;
+}
+
+[data-bs-theme="dark"] .mode-icons.light-mode {
+  display: none;
+}
+
+[data-bs-theme="dark"] .mode-icons.dark-mode {
+  display: block;
+}
+
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n + 1)),
+.flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n + 1)),
+.flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n + 1)) {
+  box-shadow: -10px 0 0 rgba(var(--bs-primary-rgb), 0.8);
+}
+:root {
+  --animate-duration: 400ms;
+  --animate-delay: 1s;
+  --animate-repeat: 1;
+}
+
+.animate__animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: var(--animate-duration);
+  animation-duration: var(--animate-duration);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate__zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+@-webkit-keyframes zoomOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.animate__zoomOut {
+  -webkit-animation-name: zoomOut;
+  animation-name: zoomOut;
+}
+
+@media screen and (max-width: 1024px) {
+  .ec-all-day {
+    overflow-x: scroll;
+  }
+  .ec-body {
+    overflow-x: scroll !important;
+  }
+  .ec-resource {
+    min-width: 160px !important;
+  }
+}
+
+fieldset,
+legend {
+  all: revert;
+  margin-bottom: 1rem;
+}
+fieldset {
+  border: 1px solid var(--bs-border-color);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+}
+
+legend {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0 0.7rem;
+  color: var(--bs-primary-shade-80);
+}
+.dark legend {
+  color: white;
+}
+
+.tox-tinymce,
+.tox-statusbar,
+.tox-toolbar__group,
+.tox-toolbar__group:not(:last-of-type) {
+  border-color: var(--bs-border-color) !important;
+}
+
+.tox .tox-toolbar,
+.tox .tox-toolbar__overflow,
+.tox .tox-toolbar__primary {
+  border: 1px solid var(--bs-border-color) !important;
+}
+.dark .multiselect-tags-search {
+  color: inherit;
+  background: inherit;
+}
+.ql-container {
+  height: calc(100% - 5rem) !important;
+}
+
+.white-space-initial td {
+  white-space: initial;
+}
+
+.dark .vti__input {
+  color: #d7dbdf;
+  background-color: #080808;
+}
+
+
+/* upload images */
+
+.iq-uploaded-image-container {
+  position: relative;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.iq-uploaded-image-container .iq-uploaded-image-close {
+  position: absolute;
+  top: .3rem;
+  left: auto;
+  right: .3rem;
+  background: var(--bs-white);
+  color: var(--bs-dark);
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.iq-uploaded-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.iq-uploaded-image-close {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 3px 5px;
+  border-radius: 50%;
+}
+
+.iq-progress {
+  width: 100%;
+  height: 5px;
+  background-color: #e9ecef;
+}
+
+.iq-image {
+  border: 3px solid var(--bs-primary); /* Add a border to indicate selection */
+  transition: all 0.3s ease; /* Smooth transition for the changes */
+}
+
+/* .iq-image-hover:hover{
+  position: absolute;
+  display: block;
+}
+
+.iq-image-close{
+  position: relative;
+} */
+
+.iq-media-images{
+  .iq-button-delete{
+    display: none;
+  }
+}
+
+.iq-media-images:hover{
+  .iq-button-delete{
+    display: block;
+  }
+}
+
+.modal-footer .btn-secondary,
+.modal-footer .btn-dark  {
+  background: var(--bs-body-bg);
+  border-color: var(--bs-body-bg);
+}

@@ -1,0 +1,35 @@
+.add-block {
+    background: transparent;
+    border: transparent;
+    i {
+        background: var(--bs-dark);
+        height: 55px;
+        width: 55px;
+        line-height: 55px;
+        display: block;
+        border-radius: 100%;
+        margin-bottom: .8rem;
+    }
+    small {
+        display: block;
+    }
+}
+
+.select-profile-card {
+    .pencil-icon {
+        background-color: var(--bs-primary);
+        color: var(--bs-white);
+        height: 35px;
+        width: 35px;
+        line-height: 35px;
+        text-align: center;
+        display: block;
+        border-radius: 100%;
+        position: absolute;
+        left: auto;
+        right: 0;
+        top: auto;
+        bottom: 20px;
+        cursor: pointer;
+    }
+}

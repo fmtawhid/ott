@@ -1,0 +1,19 @@
+.custom-table-effect{
+    .table{
+        tbody{
+            tr{
+                &:after{
+                    right: 0;
+                    border-top-left-radius: $border-radius;
+                    border-bottom-left-radius: $border-radius;
+                    border-top-right-radius: unset;
+                    border-bottom-right-radius: unset;
+                }   
+            }
+        }
+    }
+}
+
+table.dataTable tfoot td, table.dataTable tfoot th, table.dataTable thead td, table.dataTable thead th {
+    text-align: right;
+}

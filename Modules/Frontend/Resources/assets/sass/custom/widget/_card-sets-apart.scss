@@ -1,0 +1,28 @@
+.sets_us_card {
+    background-color: var(--bs-gray-900);
+    .sets_us_icon {
+      background: var(--bs-gray-800);
+      border-radius: 50%;
+      height: 5rem;
+      width: 5rem;
+      position: relative;
+  
+      .circle-icon {
+        height: 50%;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+      }
+  
+    }
+  
+    .sets_us_content {
+      margin-top: 60px;
+  
+      .sets_us_desc {
+        font-size: 14px;
+      }
+    }
+  }

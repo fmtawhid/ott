@@ -1,0 +1,33 @@
+.dropdown-menu{
+    --bs-dropdown-item-padding-x: 1rem;
+    --bs-dropdown-item-padding-y: .5rem;
+    text-align: inherit;
+    
+    .dropdown-item{
+        border-radius: var(--bs-border-radius-lg);
+
+        &:hover, &.active{
+            background-color: var(--bs-gray-900);
+            color: var(--bs-white);
+        }
+
+        .active-icon{
+            font-size: 12px;
+            height: 16px;
+            width: 16px;
+            line-height: 16px;
+            text-align: center;
+            background-color: var(--bs-primary);
+            border-radius: 50%;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        &.active {
+            .active-icon {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}

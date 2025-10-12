@@ -1,0 +1,210 @@
+.form-range { 
+    &::-webkit-slider-thumb {
+        cursor: pointer;
+    }
+}
+.media-search {
+    position: relative;
+    .close-icon {
+        position: absolute;
+        left: auto;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+// .offcanvas, .modal {
+//     label {
+//         &.form-label {            
+//             font-size: 12px;
+//             font-weight: 600;
+//             line-height: 26px;
+//             color: var(--bs-heading-color);
+//             margin-bottom: 5px;
+//             padding-right: 5px;
+//         }
+//     }
+//     .form-control {
+//         padding: 0.875rem 1rem;
+//         height: 40px;
+//         font-family: var(--#{$prefix}font-monospace);
+//         color: var(--bs-body-color);
+//         border: 1px solid var(--bs-border-color);
+//         &::placeholder {
+//             font-size: 12px;
+//             font-weight: 400;
+//             line-height: 20px;
+//             font-family: var(--#{$prefix}font-monospace);
+//             color: var(--bs-body-color);
+//         }
+//         &:focus {
+//             border-color: var(--bs-primary);
+//         }
+//     }
+//     .input-group {
+//         > .form-control {
+//             border-radius: 6px;
+//             border-color: var(--bs-border-color);
+//             border-right: none;
+//             padding-right: 0;
+//             padding: 0.875rem 1rem;
+//             height: 40px;
+//             font-family: var(--#{$prefix}font-monospace);
+//             color: var(--bs-body-color);
+//             &::placeholder {
+//                 font-size: 12px;
+//                 font-weight: 400;
+//                 line-height: 20px;
+//                 color: var(--bs-body-color);
+//                 font-family: var(--#{$prefix}font-monospace);
+//             }
+//             &:focus {
+//                 border-color: var(--bs-primary);
+//                 + {
+//                     .input-group-text {
+//                         border-color: var(--bs-primary);
+//                     }
+//                 }
+//             }
+//         }
+//         .input-group-text {
+//             border-left: none;
+//             border-color: var(--bs-border-color);
+//             color: var(--bs-body-color);
+//         }
+//     }
+//     textarea {
+//         &.form-control {
+//           min-height: 98px;
+//           border: 1px solid var(--bs-border-color);
+//         }
+//         &:focus {
+//             border-color: var(--bs-primary);
+//         }
+//     }
+//     .vue-tel-input {
+//         border-radius: 6px;
+//         border-color: var(--bs-border-color);
+//         height: 40px;
+//         .vti__dropdown {
+//             padding: 0;
+//         }
+//         .vti__input {
+//             &::placeholder {
+//                 font-size: 12px;
+//                 font-weight: 400;
+//                 line-height: 20px;
+//                 font-family: var(--#{$prefix}font-monospace);
+//                 color: var(--bs-body-color);
+//             }
+//         }
+//         &:focus-within {
+//             box-shadow: none;
+//             border-color: var(--bs-primary);
+//         }
+//     }
+//     .multiselect {
+//         border: none;
+//         font-size: 12px;
+//         font-weight: 400;
+//         line-height: 20px;
+//         font-family: var(--#{$prefix}font-monospace);
+//         color: var(--bs-body-color);
+//         border: 1px solid var(--bs-border-color);
+//         .multiselect-wrapper {
+//             min-height: 40px;
+//             border: none;  
+//             input {
+//                 &::aria-placeholder {
+//                     color: var(--bs-body-color);
+//                 }
+//             }          
+//         }
+//         &.is-active {
+//             border-color: var(--bs-primary);
+//         }
+//     }
+//     .offcanvas-footer {
+//         border-color: var(--bs-border-color) !important;
+//     }
+//     .create-service-image {
+//         .custom-file-upload {
+//             .uppy-Root {
+//                 .uppy-Dashboard {
+//                     height: 16.4rem;
+//                 }
+//             }
+//         }
+//     }
+//     .custom-file-upload {
+//         .uppy-Root {
+//             color: var(--bs-heading-color);
+//             .uppy-Dashboard {
+//                 width: auto;
+//                 height: 14rem;
+//                 .uppy-Dashboard-inner {
+//                     background: var(--bs-gray-900);
+//                     border-color: var(--bs-border-color);
+//                     .uppy-Dashboard-AddFiles-title {
+//                         height: 100%;
+//                         display: flex;
+//                         flex-direction: column;
+//                         justify-content: center;
+//                         font-size: 1rem;
+//                         color: var(--bs-heading-color);
+//                         .uppy-Dashboard-browse {
+//                             color: var(--bs-primary);
+//                         }
+//                     }
+//                 }                
+//             }
+//         }
+//     }
+//     .avb-slot {
+//         label {
+//             background: var(--bs-gray-900);
+//             color: var(--bs-body-color);
+//             padding: 3px 12px;
+//             border-radius: 3px;
+//             margin-bottom: 0;
+//             &:hover {
+//                 background: var(--bs-primary);
+//                 color: var(--bs-white);
+//             }
+//             &.selected_slot {
+//                 background: var(--bs-primary);
+//                 color: var(--bs-white);
+//             }
+//         }
+//     }
+// }
+.multiselect-dropdown {
+    .multiselect-option {
+        font-size: 0.875rem;
+    }
+}
+
+[data-uppy-drag-drop-supported=true] .uppy-Dashboard-AddFiles {
+    border: none !important;
+}
+
+.red-asterisk {
+    position: absolute;
+    color: red;
+    margin-left: 3px; /* Adjust this value to position the asterisk */
+}
+  
+.form-control {
+    position: relative;
+}
+
+.vue-tel-input{
+    .vti__input {
+        background-color: var(--bs-gray-900);
+        border-radius: 0 6px 6px 0;
+    }
+
+    .vti__dropdown {
+        border-radius: 6px 0 0 6px;
+    }
+}

@@ -1,0 +1,37 @@
+[dir="rtl"] {
+    @import "utilities/utilities-reset";
+    @import "utilities/utilities";
+    @import "../bootstrap/utilities/api";
+
+    @import "./reboot/reboot";
+    @import "components/menu-style/index";
+    @import "components/button/bs-btn";
+    @import "./components/badge/badge";
+    @import "components/button/fixed-btn";
+    @import "components/button/icon-btn";
+    @import "components/progressbar/progressbar";
+    @import "components/profile/profile";
+    @import "components/widgets/plugins-index";
+    @import "components/button-group/button-group";
+    @import "components/forms/form-check";
+    @import "components/dropdown/bs-dropdown";
+    @import "components/timeline/simple-timeline";
+    @import "./components/table/bs-table";
+    @import "./components/chart/chart";
+    @import "./components/toast/toast";
+    @import "./components/forms/floating-lable";
+    @import "./components/breadcrumb/breadcrumb";
+    @import './components/nav/logo';
+    @import "./components/offcanvas/offcanvas";
+    @import "./components/pagination/pagination";
+    @import "components/list-group/list-group";
+
+
+    @import "pages/auth/authentication";
+    @import "pages/kanban/kanban";
+    @import "pages/pricing/pricing";
+
+    @import "./plugins/plugins";
+
+    @import "./components/pro/pro-components";
+}

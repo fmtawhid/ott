@@ -1,0 +1,21 @@
+.apexcharts-radialbar-area {
+    stroke-linecap: round;
+}
+
+.apexcharts-svg .apexcharts-yaxis-texts-g text {
+    fill: var(--bs-body-color);
+}
+
+.apexcharts-svg .apexcharts-xaxis-texts-g text {
+    fill: var(--bs-body-color);
+}
+
+.apexcharts-toolbar .apexcharts-menu {
+    background: var(--bs-gray-900);
+    color: var(--bs-body-color);
+    border-color: var(--bs-body-color);
+}
+
+.apexcharts-canvas {
+    margin: 0 auto;
+}

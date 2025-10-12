@@ -1,0 +1,5 @@
+.offcanvas {
+    &:has(.modal.show) {
+        z-index: 2050;
+    }
+}

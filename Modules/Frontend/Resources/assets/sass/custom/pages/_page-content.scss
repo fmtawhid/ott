@@ -1,0 +1,144 @@
+body {
+  overflow-x: hidden;
+}
+
+html:has(.short-menu) {
+  scroll-padding-top: 5rem;
+}
+
+.view-all-button {
+  color: var(--bs-body-color);
+  transition: all .3s ease 0s;
+
+  span {
+    font-size: $font-size-sm;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+.page-title {
+  padding: 1em 1em 2.83em 1em;
+}
+
+.padding-right-0 {
+  padding-right: 0 !important;
+}
+
+// add watch list
+.watch-list-add-btn {
+  height: 140px;
+  width: 140px;
+  line-height: 140px;
+  background-color: var(--bs-gray-900);
+  border-radius: 50%;
+
+  i {
+    font-size: 40px;
+    vertical-align: middle;
+  }
+}
+
+.add-watch-list-info {
+  .watchlist-description {
+    font-size: 14px;
+  }
+}
+
+.profile-section{
+  min-height: 100vh;
+  height: 100%;
+
+  .navbar-brand{
+    .logo{
+      width: 160px;
+    }
+  }
+
+}
+
+// end add watch list
+
+.search-histroy {
+  margin: 2rem 1rem;
+  .history-item {
+    cursor: pointer;
+    padding: .5rem 1rem;
+    color: var(--bs-white);
+    background-color: var(--bs-gray-900);
+    display: inline-block;
+    border-radius: var(--bs-border-radius-lg);
+    transition: all .3s ease 0s;
+    &:hover {
+      color: var(--bs-white);
+      background-color: var(--bs-primary-bg-subtle);
+    }
+    button {
+      background: transparent;
+      border: none;
+      color: var(--bs-primary);
+      outline: none;
+    }
+  }
+}
+
+.footer-fix {
+  height: calc(100vh - 575px);
+}
+
+.error-page {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  .error-page-container, .error-page-row {
+    min-height: 100vh;
+    height: 100%;
+  }
+
+  .iq-error-img {
+    width: 500px;
+  }
+
+}
+
+.search-not-found {
+  position: relative;
+
+  .form-control {
+    padding-right: 2rem;
+  }
+
+  .remove-search {
+    background-color: transparent;
+    color: var(--bs-primary);
+    font-size: 12px;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    right: 65px;
+    padding: 0;
+    transform: translateY(-50%);
+    z-index: 6;
+  }
+}
+
+
+@include media-breakpoint-down(sm) {
+
+  // Account Setting
+  .account-setting-content {
+    flex-wrap: wrap;
+  }
+
+  // end
+}

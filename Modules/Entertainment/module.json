@@ -1,0 +1,13 @@
+{
+    "name": "Entertainment",
+    "alias": "entertainment",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Entertainment\\Providers\\EntertainmentServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

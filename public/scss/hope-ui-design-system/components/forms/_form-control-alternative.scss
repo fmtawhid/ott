@@ -1,0 +1,110 @@
+.form-group{
+    margin-bottom: $spacer;
+}
+.form-group-alt{
+    &.input-group{
+        box-shadow: $box-shadow-sm;
+        border-radius: $border-radius-sm;
+        .input-group-text{
+            background: transparent;
+        }
+        > :not(:first-child):not(.dropdown-menu){
+            box-shadow: unset;
+            &.input-group-text {
+                border: 0;
+                padding-left: 0;
+            }
+        }
+        > :not(:last-child):not(.dropdown-menu){
+            box-shadow: unset;
+            padding-right: 0;
+            &.input-group-text {
+                border: 0;
+            }
+        }
+    }
+    .form-control {
+        border: 0;
+        box-shadow: $box-shadow-sm;       
+    }
+}
+
+.form-select{
+    box-shadow: none;
+    &:focus{
+        box-shadow: none;
+    }
+}
+.form-control {
+    &[readonly]{
+        background-color: var(--#{$prefix}gray-900);
+    }
+}
+
+option:disabled {
+    color: var(--bs-gray-400);
+}
+
+.multiselect{
+    background: $input-bg !important;
+    border-color: $input-border-color;
+
+    .multiselect-dropdown{
+        background: $input-bg;
+        border-color: $input-border-color;
+        border-radius: $input-border-radius;
+    }
+
+    &:focus {
+        box-shadow: none !important;
+    }
+
+    &.is-active {
+       box-shadow: none !important;
+       border: none;
+    }
+}
+
+.vti__dropdown.open,
+.vti__dropdown:hover,
+.vti__dropdown-list{
+    background-color: $input-bg !important;
+}
+
+.vti__dropdown-list{
+    border: $input-border-width solid $input-border-color !important;
+}
+
+.vti__dropdown-item{
+    &.highlighted{
+        background-color: var(--bs-body-bg) !important;
+    }
+}
+
+.form-control{
+    &.signature-pad{
+        padding: 0;
+    }
+}
+
+.form-control, .form-select{
+    &.field-with-border{
+        border-color: var(--bs-border-color);
+
+        &:focus{
+            border-color: $input-focus-border-color;
+        }
+    }
+}
+
+.multiselect{ 
+    .multiselect-search{
+        background-color: var(--bs-gray-900);
+    }
+}
+
+#url_file_input {
+    video {
+        max-width: 100%;
+    }
+}

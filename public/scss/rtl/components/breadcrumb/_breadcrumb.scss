@@ -1,0 +1,6 @@
+.breadcrumb-item+.breadcrumb-item {
+	&::before {
+		float: right;
+		padding-left: var(--bs-breadcrumb-item-padding-x);
+	}
+}

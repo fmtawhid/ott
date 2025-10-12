@@ -1,0 +1,17 @@
+.form-floating>label {
+ right: 0;
+ left: auto;
+}
+.was-validated .form-control:valid, .form-control.is-valid {
+    background-position: left calc(0.375em + 0.25rem) center;
+    padding-left: calc(1.5em + 1rem);
+}
+.custom-form-floating-sm>label {
+    transform: scale(1.125) translateY(0.5rem) translateX(-0.5rem);
+}
+.custom-form-floating>label{
+    transform: scale(1.125) translateY(0.5rem) translateX(-0.5rem);
+}
+.custom-form-floating-lg>label{
+    transform: scale(1.125) translateY(0.5rem) translateX(-0.5rem);
+}

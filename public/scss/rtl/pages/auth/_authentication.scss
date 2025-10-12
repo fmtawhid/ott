@@ -1,0 +1,41 @@
+.sign-bg {
+	right: 0;
+	left: 0;
+
+	&.sign-bg-right {
+		left: 0;
+		right: auto;
+	}
+}
+.iq-auth-page {
+	.iq-banner-logo {
+		left: auto;
+		right: 0;
+	}
+	
+	.container-inside {
+		left: 23rem;
+		right: auto;
+	}
+	.iq-banner-logo {
+		.auth-image {
+			left: auto;
+			right: 7rem;
+			transform: scale(2.5) rotateY(180deg);
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.offset-xl-7 {
+		margin-left: auto;
+		margin-right: 58.33333333%;
+	}
+}
+
+@media (min-width: 992px) {
+	.offset-lg-7 {
+		margin-left: auto;
+		margin-right: 58.33333333%;
+	}
+}

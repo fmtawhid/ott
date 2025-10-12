@@ -1,0 +1,243 @@
+// main banner
+.main-banner{
+    .slick-item{
+        background-size: cover;
+        background-repeat: no-repeat;
+        // background-position: center center;
+        height: 100%;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(360deg, #000E17 0%, rgba(0, 0, 0, 0) 50%), linear-gradient(133.05deg, #000000 0%, rgba(0, 0, 0, 0) 36.66%), linear-gradient(226.85deg, #000000 0%, rgba(0, 0, 0, 0) 43.12%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            z-index: -1;
+        }
+
+        .movie-content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+            padding: 137px 0;
+            height: 100%;
+            min-height: 100vh;
+        }
+    }
+
+    .watch-list-btn {
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .slick-dots{
+        left: 6.25rem;
+        bottom: 5rem;
+        width: auto;
+    }
+
+}
+
+// livetv banner
+.livetv-banner-wrapper{
+    margin: 3.125rem 0;
+}
+
+.live-tv-banner{
+    .livetv-item{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
+        min-height: 80vh;
+        height: 100%;
+        border-radius: var(--bs-border-radius);
+        overflow: hidden;
+        z-index: 1;
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(360deg, #000E17 0%, rgba(0, 0, 0, 0) 50%), linear-gradient(133.05deg, #000000 0%, rgba(0, 0, 0, 0) 36.66%), linear-gradient(226.85deg, #000000 0%, rgba(0, 0, 0, 0) 43.12%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            z-index: -1;
+        }
+
+        .livetv-content-wrapper{
+            position: relative;
+            padding: 57px 20px;
+            height: 100%;
+            min-height: inherit;
+
+            .livetv-content-inner{
+                height: 100%;
+                min-height: inherit;
+            }
+        }
+
+        .livetv-content{
+            text-align: center;
+        }
+
+        .live-card-badge{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+
+            .live-badge {
+                padding: 5px 10px 5px 23px;
+                border-radius: 13px;
+                font-size: 14px;
+                color: var(--bs-gray-900);
+                background-color: var(--bs-heading-color);
+        
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 10px;
+                    height: 8px;
+                    width: 8px;
+                    border-radius: 50%;
+                    transform: translateY(-50%);
+                    background-color: var(--bs-primary);
+                }
+            }
+        }
+    }
+
+    .slick-dots{
+        bottom: 0;
+    }
+}
+
+.movie-tag-list{
+    gap: 2rem;
+
+    li{
+        position: relative;
+
+        &::after{
+            content: "";
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            background-color: var(--bs-body-color);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -18px;
+        }
+
+        .tag{
+            color: var(--bs-body-color);
+            font-weight: 600;
+
+            &:hover{
+                color: var(--bs-white);
+            }
+        }
+
+        &:last-child{
+            &::after{
+                content: none;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(xxl){
+    .main-banner{
+        .slick-dots {
+            left: 2rem;
+        }
+    }
+}
+
+@include media-breakpoint-down(xl){
+    .main-banner {
+        .slick-item{
+            height: 500px;
+            min-height: inherit;
+
+            .movie-content {
+                padding: 80px 0;
+                min-height: inherit;
+            }
+        }
+
+        .slick-dots{
+            bottom: 3rem;
+        }
+    }
+
+    .live-tv-banner{
+        .livetv-item{
+            height: 500px;
+            min-height: inherit;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .main-banner {
+        .slick-item {
+            height: 450px;
+
+            .movie-content {
+                padding: 32px 0;
+            }
+        }
+
+        .slick-dots {
+            left: 1rem;
+            bottom: 2rem;
+        }
+    }
+
+    .livetv-banner-wrapper {
+        margin: 1rem 0 3.125rem;
+    }
+
+    .live-tv-banner {
+        .livetv-item {
+            height: 400px;
+            min-height: inherit;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .movie-tag-list {
+        gap: .3rem 1rem;
+
+        li {
+            a{
+                font-size: .875rem;
+            }
+
+            &::after {
+                right: -10px;
+            }
+        }
+    }
+}

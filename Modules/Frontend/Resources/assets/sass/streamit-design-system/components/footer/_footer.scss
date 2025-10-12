@@ -1,0 +1,83 @@
+.footer {
+    .footer-logo {
+        .logo {
+            width: 154px;
+        }
+    }
+
+    .footer-top {
+        padding: 80px 0 100px;
+        background-color: var(--bs-gray-900);
+    }
+
+    .footer-menu {
+        >li {
+            position: relative;
+
+            a {
+                display: inline-block;
+                position: relative;
+                color: var(--bs-body-color);
+                font-size: 0.875rem;
+                transition: all .3s ease-in;
+                text-transform: capitalize;
+                padding-left: 1rem;
+
+                &::before {
+                    content: "\e13a";
+                    font-family: "Phosphor" !important;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    letter-spacing: 0;
+                    -webkit-font-feature-settings: "liga";
+                    -moz-font-feature-settings: "liga=1";
+                    -moz-font-feature-settings: "liga";
+                    -ms-font-feature-settings: "liga" 1;
+                    font-feature-settings: "liga";
+                    -webkit-font-variant-ligatures: discretionary-ligatures;
+                    font-variant-ligatures: discretionary-ligatures;
+                    -webkit-font-smoothing: antialiased;
+                    position: absolute;
+                    left: -4px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: var(--bs-body-color);
+                    font-size: .875rem;
+                    transition: all .3s ease-in;
+                }
+
+                &:hover {
+                    color: var(--bs-primary);
+
+                    &::before {
+                        color: var(--bs-primary);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        background-color: var(--bs-gray-800);
+        padding: 13px 0;
+    }
+
+    .column-count-2 {
+        column-count: 2;
+    }
+    .app-icon {
+        img {
+            height: 50px;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .footer {
+        .footer-top {
+            padding: 50px 0 70px;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<?php
+
+namespace {{namespace}}\{{moduleName}}\database\seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
+use Modules\{{moduleName}}\Models\{{moduleName}};
+use Modules\MenuBuilder\Models\MenuBuilder;
+
+class {{moduleName}}DatabaseSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+    }
+}

@@ -1,0 +1,86 @@
+.flatpickr-calendar{
+    background: var(--bs-gray-900);
+    box-shadow: var(--bs-box-shadow);
+    .flatpickr-innerContainer{
+        .flatpickr-rContainer{
+            .flatpickr-weekdays{
+                .flatpickr-weekdaycontainer{
+                    .flatpickr-weekday{
+                        color: var(--bs-body-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.flatpickr-day.inRange, .flatpickr-day.nextMonthDay.inRange, .flatpickr-day.nextMonthDay.today.inRange{
+    background: var(--bs-gray-100);
+    border-color: var(--bs-gray-100);
+    color: var(--bs-heading-color);
+}
+.flatpickr-day.nextMonthDay:focus, .flatpickr-day.nextMonthDay:hover, .flatpickr-day.prevMonthDay.inRange, .flatpickr-day.prevMonthDay.today.inRange, .flatpickr-day.prevMonthDay:focus, .flatpickr-day.prevMonthDay:hover{
+    border-color: rgba($white,.3);
+    background: rgba($white,.3);
+    color: rgba($black,.8);
+}
+.flatpickr-day.today.inRange, .flatpickr-day:focus, .flatpickr-day:hover{
+    border-color: var(--bs-gray-900);
+    background: var(--bs-gray-900);
+    color: var(--bs-body-color);
+}
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.flatpickr-disabled{
+    color: var(--bs-body-color);
+}
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day.flatpickr-disabled:hover{
+    border-color: var(--bs-gray-900);
+    background: var(--bs-gray-900);
+    color:var(--bs-body-color);
+}
+
+.flatpickr-day{
+    &.inRange{
+        box-shadow: -5px 0 0 var(--bs-border-color), 5px 0 0 var(--bs-border-color);
+    }
+}
+
+
+.dayContainer{
+    .flatpickr-day{
+        &.endRange,&.startRange{
+            background: var(--bs-primary);
+            color: var(--bs-white);
+        }
+
+    }
+}
+
+.flatpickr-months .flatpickr-month {
+	color: var(--bs-body-color);
+	fill: var(--bs-body-color);
+}
+
+.flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month {
+	color: var(--bs-heading-color);
+	fill: var(--bs-heading-color);
+}
+
+.flatpickr-day {
+	color: var(--bs-heading-color);
+}
+
+@include media-breakpoint-down(md) {
+	.fc-toolbar{
+		flex-wrap: wrap;
+        .fc-left{
+            margin-bottom: 1rem;
+        }
+		.fc-right{
+			.fc-button-group{
+				margin-top: 1rem;
+			}
+		}
+	}
+}

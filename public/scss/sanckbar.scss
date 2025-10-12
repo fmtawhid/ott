@@ -1,0 +1,23 @@
+.snackbar {
+  width: 22rem;
+  position: fixed;
+  bottom: -100%; /* Initially position it off-screen */
+  left: 10%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  z-index: 9999;
+  transition: bottom 0.7s ease-in-out; /* Add transition effect */
+}
+
+.snackbar.show {
+  bottom: 20px; /* Position it to appear from bottom */
+}
+
+.dismiss-link {
+  color: #fff;
+  text-decoration: underline; /* Optionally, add underline to mimic link behavior */
+  cursor: pointer;
+}

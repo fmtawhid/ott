@@ -1,0 +1,72 @@
+@each $color, $value in $theme-colors {
+    .btn-#{$color} {
+        --bs-btn-bg: var(--bs-#{$color});
+        --bs-btn-border-color: var(--bs-#{$color});
+        --bs-btn-hover-bg: var(--bs-#{$color}-hover-bg);
+        --bs-btn-hover-border-color: var(--bs-#{$color}-hover-border);
+        --bs-btn-active-bg: var(--bs-#{$color}-active-bg);
+        --bs-btn-active-border-color: var(--bs-#{$color}-active-border);
+        --bs-btn-disabled-bg: var(--bs-#{$color});
+        --bs-btn-disabled-border-color: var(--bs-#{$color});
+    }
+
+    .btn-outline-#{$color} {
+        --bs-btn-color: var(--bs-#{$color});
+        --bs-btn-border-color: var(--bs-#{$color});
+        --bs-btn-hover-bg: var(--bs-#{$color}-hover-bg);
+        --bs-btn-hover-border-color: var(--bs-#{$color}-hover-border);
+        --bs-btn-active-bg: var(--bs-#{$color}-active-bg);
+        --bs-btn-active-border-color: var(--bs-#{$color}-active-border);
+        --bs-btn-disabled-bg: var(--bs-#{$color});
+        --bs-btn-disabled-border-color: var(--bs-#{$color});
+    }
+
+    .btn-#{$color}-subtle {
+        --bs-btn-color: var(--bs-#{$color});
+        --bs-btn-bg: var(--bs-#{$color}-bg-subtle);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: var(--bs-#{$color}-hover-bg);
+        --bs-btn-active-bg: var(--bs-#{$color}-active-bg);
+        --bs-btn-disabled-bg: var(--bs-#{$color});
+    }
+
+    .bg-#{$color}-subtle {
+        color: var(--bs-#{$color});
+    }
+
+}
+
+.invalid-feedback {
+  color: var(--bs-primary);
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  border-color: transparent;
+}
+
+.was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
+  background-color: var(--bs-primary);
+}
+
+.was-validated .form-check-input:valid, .form-check-input.is-valid {
+  border-color:transparent;
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  border-color: transparent;
+  background-image: none;
+}
+
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  border-color: transparent;
+}
+
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+  border-color: transparent;
+}
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: var(--bs-body-color);
+}

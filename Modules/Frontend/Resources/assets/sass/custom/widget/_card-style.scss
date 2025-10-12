@@ -1,0 +1,291 @@
+.section-wraper{
+  position: relative;
+  z-index: 0;
+}
+
+.section-wraper:has(.slick-general .slick-item:hover){
+  z-index: 1;
+}
+
+.iq-card {
+  .block-images {
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.6s ease 0s;
+    overflow: hidden;
+    > a {
+      z-index: 99;
+    }
+    .image-box {
+      border-radius: 0.1875rem;
+      overflow: hidden;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(0deg, #0c0b11 8.71%, rgba(12, 11, 17, 0) 72.11%);
+        border-radius: 0.1875rem;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        border-radius: var(--bs-border-radius);
+      }
+      img {
+        mix-blend-mode: overlay;
+        aspect-ratio: 2/2.8;
+        border-radius: var(--bs-border-radius);
+      }
+      .product-new {
+        position: absolute;
+        top: .875rem;
+        left: .875rem;
+        background: var(--bs-primary);
+        color: var(--bs-white);
+        padding: .375rem .625rem;
+        border-radius: .25rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .product-premium {
+        position: absolute;
+        top: .875rem;
+        left: auto;
+        right: 1rem;
+        background: var(--bs-warning);
+        color: var(--bs-white);
+        border-radius: 100%;
+        height: 1.75rem;
+        width: 1.75rem;
+        line-height: 1.9rem;
+        text-align: center;
+        z-index: 100;
+        i {
+          font-size: $font-size-sm;
+        }
+      }
+    }
+
+    .card-description {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: auto;
+      right: 0;
+      padding: 1.25rem 1.25rem 0.625rem;
+      z-index: 9;
+      transition: all 0.4s ease-in-out;
+      padding: 1.25rem 1.25rem 0.625rem;
+      transform: translate3d(0, 0, 0);
+      -webkit-font-smoothing: antialiased;
+      &.with-transition {
+        bottom: -2rem;
+        opacity: 0;
+        padding: 1.25rem 0 0;
+        visibility: hidden;
+        transition: all 0.1s ease;
+      }
+      .genres-list {
+        list-style: none;
+        li {
+          position: relative;
+          font-weight: 600;
+
+          &::after{
+            content: "";
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            background-color: var(--bs-body-color);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -19px;
+          }
+
+          &:last-child {
+            list-style: none;
+
+            &::after{
+              content: none;
+            }
+          }
+        }
+      }
+      .movie-time-text {
+        color: var(--bs-body-color);
+        font-size: 0.75rem;
+      }
+      .watch-list-btn {
+        height: 40px;
+        width: 40px;
+        min-width: 40px;
+        line-height: 40px;
+        text-align: center;
+        padding: 0;
+        border-radius: 50%;
+      }
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      border: 1.25rem solid var(--bs-gray-900);
+      bottom: -3.2rem;
+      left: -1.20rem;
+      right: -1.20rem;
+      top: -1.20rem;
+      opacity: 0;
+      transition: all 0.1s ease-in-out;
+      visibility: hidden;
+      background: transparent;
+      border-radius: var(--bs-border-radius);
+    }
+  }
+}
+
+// card hover style start
+.card-hover {
+  &:hover {
+    .block-images {
+      z-index: 99;
+      transform: scale3d(1.1, 1.1, 1) translate3d(0, 0, 0) perspective(31.25rem);
+      transform-origin: 50% 50%;
+      transition: all 0.6s ease 0s;
+      box-shadow: none;
+      transition-delay: 0.2s;
+      overflow: visible;
+      .image-box {
+        background: transparent;
+
+        img {
+          mix-blend-mode: inherit;
+        }
+
+        &::before {
+          opacity: 1;
+        }
+      }
+      .card-description {
+        background: var(--bs-gray-900);
+        &.with-transition {
+          opacity: 1;
+          visibility: visible;
+          transition-delay: 0.2s;
+        }
+      }
+      &::after {
+        opacity: 1;
+        transition: all 0.2s ease-in-out;
+        visibility: visible;
+        transition-delay: 0.2s;
+      }
+    }
+  }
+}
+
+.slick-item {
+  &:has(+.first){
+    .card-hover {
+      pointer-events: none;
+    }
+  }
+
+  &.first {
+    .card-hover {
+      &:hover {
+        .block-images {
+          transform: scale3d(1.1, 1.1, 1) translate3d(12%, 0, 0) perspective(31.25em);
+        }
+      }
+    }
+  }
+
+  &.last {
+    .card-hover {
+      &:hover {
+        .block-images {
+          transform: scale3d(1.1, 1.1, 1) translate3d(-12%, 0, 0) perspective(31.25em);
+        }
+      }
+    }
+
+    &:has(+ .slick-slide) {
+      .card-hover {
+        &:hover {
+          .block-images {
+            transform: scale3d(1.1, 1.1, 1) translate3d(0, 0, 0) perspective(31.25rem);
+          }
+        }
+      }
+    }
+
+    &+.slick-slide {
+      .card-hover {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .iq-card {
+    .block-images {
+      .card-description.with-transition {
+        display: none;
+      }
+      &::after {
+        display: none;
+      }
+      .image-box {
+        .product-new {
+          top: 0.5rem;
+          left: 0.5rem;
+          padding: 0.275rem 0.425rem;
+        }
+        .product-premium {
+          top: 0.5rem;
+          right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .slick-item.first {
+    .card-hover {
+      &:hover {
+        .block-images {
+          transform: scale3d(1.1, 1.1, 1) translate3d(0%, 0, 0) perspective(31.25em);
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .iq-card {
+    .block-images {
+      .image-box {
+        .product-new {          
+          padding: 0.175rem 0.25rem;
+          font-size: .5rem;
+        }
+        .product-premium {
+          height: 1.2rem;
+          width: 1.2rem;
+          line-height: 1.2rem;
+          i {
+            font-size: 0.75rem;
+          }
+        }
+      }
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

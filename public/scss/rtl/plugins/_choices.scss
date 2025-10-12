@@ -1,0 +1,12 @@
+.choices[data-type*=select-one]::after {
+    right: auto;
+    left: 11.5px;
+}
+
+.choices__list--single .choices__item {
+    text-align: right;
+}
+
+.choices {
+    text-align: right;
+}

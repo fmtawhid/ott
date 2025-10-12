@@ -1,0 +1,13 @@
+{
+    "name": "NotificationTemplate",
+    "alias": "notificationtemplate",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\NotificationTemplate\\Providers\\NotificationTemplateServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

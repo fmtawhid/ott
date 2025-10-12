@@ -1,0 +1,13 @@
+// ol, ul{
+//     padding-right: 0;
+// }
+
+.list-inline-item:not(:last-child) {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+.transform-icon {
+    display: inline-block;
+    transform: scaleX(-1);
+}

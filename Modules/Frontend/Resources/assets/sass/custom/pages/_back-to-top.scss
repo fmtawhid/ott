@@ -1,0 +1,19 @@
+#back-to-top {
+  display: inline !important;
+
+  .top {
+    z-index: 1000;
+    bottom: 6em;
+    right: 1.5625em;
+    width: 3.125em;
+    height: 3.125em;
+    text-align: center;
+    line-height: 3.125em;
+    transition: all 0.3s ease-in-out;
+
+    i {
+      font-size: 20px;
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+// add rating
+.rating-modal {
+    .modal-dialog {
+        max-width: 480px;
+        margin: var(--bs-modal-margin) auto;
+    }
+
+    .modal-body {
+        padding: 70px 53px;
+    }
+}
+
+.rating-list {
+    .icon {
+        transition: all .3s ease-in-out;
+
+        .icon-normal,
+        .icon-fill {
+            transition: all .3s ease-in-out;
+        }
+
+        .icon-fill {
+            display: none;
+        }
+
+        &:hover {
+            .icon-normal {
+                display: none;
+            }
+
+            .icon-fill {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+// start account modal
+.modal-acoount-card {
+    max-width: 500px;
+
+    .signout-icon {
+        height: 115px;
+        width: 115px;
+        text-align: center;
+        line-height: 115px;
+        margin: auto;
+        border-radius: 50%;
+        background: var(--bs-primary);
+        svg path{
+            fill: var(--bs-white);
+        }
+    }
+
+    .modal-acoount-info {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+
+.modal-icon-check {
+    background: var(--bs-primary);
+    height: 94px;
+    width: 94px;
+    line-height: 94px;
+    border-radius: 50%;
+    font-size: 48px;
+}
+
+.custom-close-btn {
+    position: absolute;
+    right: -7px;
+    top: -10px;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    font-size: 16px;
+}
+
+.successfully-acoount-card {
+    .successfully-info {
+        padding-top: 112px;
+        padding-bottom: 112px;
+    }
+}
+
+// add profile modal
+.add-profile-modal{
+    --bs-modal-width: 600px;
+
+    .modal-dialog{
+        max-width: var(--bs-modal-width);
+    }
+
+    .modal-body{
+        padding: 60px 27px;
+    }
+}
+
+// end
+@include media-breakpoint-down(sm) {
+    .rating-modal {
+        .modal-dialog {
+            max-width: inherit;
+            margin: var(--bs-modal-margin);
+        }
+
+        .modal-body {
+            padding: 45px 32px;
+        }
+    }
+
+    // modal account 
+    .modal-acoount-card {
+
+        .modal-acoount-info {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    }
+
+    // end
+
+    // Successfully Acoount
+    .successfully-acoount-card {
+
+        .successfully-info {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    }
+
+    // end
+    // add profile modal
+.add-profile-modal{
+    --bs-modal-width: 575px;
+    
+    .modal-body{
+        padding: 40px 16px;
+    }
+}
+
+// end
+}

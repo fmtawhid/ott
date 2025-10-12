@@ -1,0 +1,141 @@
+.video-player {
+  .video-js {
+    position: relative;
+    padding-bottom: 43%;
+    width: 100%;
+    height: 0;
+  }
+
+  .vjs-tech {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .vjs-control-bar {
+    width: 100%;
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 43%;
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.vjs-control-bar {
+  .vjs-skip-trainer-button.vjs-control, .vjs-next-episode-button.vjs-control {
+    position: absolute;
+    bottom: 4em;
+    right: 16px;
+    background-color: var(--bs-danger);
+    color: var(--bs-white);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: .25em .8em;
+    border: none;
+    width: auto;
+    border-radius: var(--bs-border-radius);
+
+    &:hover {
+      text-shadow: none;
+    }
+
+    &::before {
+      content: "\e5a6";
+      font-size: 12px;
+      font-family: "Phosphor-Fill";
+      speak: never;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      letter-spacing: 0;
+      vertical-align: middle;
+      margin-right: .25rem;
+    }
+  }
+
+  // .vjs-next-episode-button {
+  //   .vjs-icon-placeholder {
+  //     &::after {
+  //       content: "\f123";
+  //       font-size: 18px;
+  //       font-family: VideoJS;
+  //       font-weight: normal;
+  //       font-style: normal;
+  //     }
+  //   }
+  // }
+
+  .vjs-previous-episode-button {
+    .vjs-icon-previous-item {
+      &::before {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+
+.vjs-skip-trainer-button:hover, .vjs-next-episode-button:hover {
+  background-color: rgba(43, 51, 63, 0.9);
+  text-shadow: 0 0 1em #fff;
+}
+
+.video-js .vjs-skip-trainer-button {
+  order: 6;
+}
+
+@include media-breakpoint-down(xl) {
+  .video-player {
+    .video-js {
+      padding-bottom: 56.25%;
+    }
+  }
+
+  .video-container {
+    padding-bottom: 56.25%;
+  }
+}
+
+
+@include media-breakpoint-down(sm) {
+  .vjs-control-bar {
+    .vjs-skip-trainer-button.vjs-control {
+      font-size: 10px;
+      bottom: 2.5rem;
+      line-height: 3;
+      padding: .15rem .5rem;
+
+      &::before {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .video-js {
+    .vjs-control {
+      &:not(.vjs-time-control, .vjs-skip-trainer-button) {
+        width: 2.5em !important;
+      }
+    }
+  } 
+}
+
+.vjs-next-episode-button.vjs-control.vjs-button{
+  width: unset;
+}

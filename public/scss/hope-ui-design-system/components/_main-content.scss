@@ -1,0 +1,142 @@
+.content-inner {
+    padding: calc(var(--bs-gutter-x, 1rem) * 2);
+}
+
+.fs-37 {
+    font-size: 37px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.heading-font {
+    font-family: var(--#{$prefix}font-monospace);
+}
+
+.heading-color {
+    color: var(--bs-heading-color);
+}
+
+.btn-white {
+    color: var(--bs-body-color);
+    background-color: var(--bs-white);
+
+    &:hover {
+        color: var(--bs-body-color);
+        background-color: var(--bs-white);
+    }
+}
+
+// offcanvas
+.offcanvas {
+    padding: 1.5rem;
+
+    &.offcanvas-w-40 {
+        width: 40%;
+    }
+
+    &.offcanvas-w-80 {
+        width: 80%;
+    }
+
+    .offcanvas-header {
+        padding: 0 0 1.5rem 0;
+        border-color: var(--bs-border-color);
+
+        .btn-close-offcanvas {
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: var(--bs-gray-600);
+            font-size: 1.5rem;
+        }
+    }
+
+    .offcanvas-body {
+        padding: 1.5rem 0 .5rem;
+        overflow-x: hidden;
+    }
+}
+
+.font-size-body {
+    font-size: var(--bs-body-font-size);
+}
+
+.mb-50 {
+    margin-bottom: 3.125rem;
+}
+
+.font-title {
+    font-family: var(--bs-font-monospace);
+    color: var(--bs-heading-color);
+}
+
+.fs-12{
+    font-size: .75rem !important;
+}
+
+.medial-history-card{
+    height: 190px;
+    overflow-y: auto;
+}
+
+.bussiness-hour {
+    .form-control {
+        &.session-time {
+            height: 2rem;
+            width: 100%;
+            padding: 0;
+            text-align: center;
+        }
+    }
+}
+
+.vue-tel-input{
+    .vti__dropdown{
+        background-color: var(--bs-gray-900);
+    }
+}
+
+.uppy-Dashboard{
+    .uppy-DashboardContent-bar{
+        background-color: var(--bs-gray-900);
+        border-bottom: 1px solid var(--bs-border-color);
+    }
+
+    .uppy-Dashboard-Item{
+        border-bottom: 1px solid var(--bs-border-color);
+    }
+}
+
+.empty-check-div{
+    display: inline-block;
+    width: 1.75em;
+}
+
+
+@include media-breakpoint-down(xl) {
+    .offcanvas {
+        &.offcanvas-w-40 {
+            width: 60%;
+        }
+
+        &.offcanvas-w-80 {
+            width: 90%;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .offcanvas {
+        &.offcanvas-w-40, &.offcanvas-w-80 {
+            width: 100%;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .content-inner {
+        padding: calc(var(--bs-gutter-x, 1rem) * 2);
+    }
+}

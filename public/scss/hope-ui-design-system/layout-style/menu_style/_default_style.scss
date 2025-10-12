@@ -1,0 +1,51 @@
+
+.sidebar {
+    &.sidebar-default {
+        .nav-link {
+            &:not(.static-item){
+                --shadow-dark-color: var(--#{$variable-prefix}primary-rgb);
+                &.active, &[aria-expanded=true] {
+                    background: var(--#{$variable-prefix}gray-800);
+                    color: var(--#{$variable-prefix}white);
+                    .icon {
+                        color: var(--#{$variable-prefix}white);
+                    }
+                }
+                &:hover {
+                    &:not(.active):not([aria-expanded=true]) {
+                        background: var(--#{$variable-prefix}gray-800);
+                        color: var(--#{$variable-prefix}heading-color);
+                        .icon {
+                            color: var(--#{$variable-prefix}heading-color);
+                        }
+                    }
+                    
+                }
+            }
+        }
+        .sub-nav {
+            .nav-link {
+                &:not(.static-item){
+                    --shadow-dark-color: var(--#{$variable-prefix}primary-rgb);
+                    &.active, &[aria-expanded=true] {
+                        background: var(--#{$variable-prefix}gray-800);
+                        color: var(--#{$variable-prefix}heading-color);
+                        .icon {
+                            color: var(--#{$variable-prefix}heading-colo);
+                        }
+                    }
+                    &:hover {
+                        &:not(.active):not([aria-expanded=true]) {
+                            background: var(--#{$variable-prefix}gray-800);
+                            color: var(--#{$variable-prefix}heading-color);
+                            .icon {
+                                color: var(--#{$variable-prefix}heading-color);
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}

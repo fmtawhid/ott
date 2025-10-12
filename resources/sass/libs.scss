@@ -1,0 +1,32 @@
+.custom-range .noUi-horizontal {
+    height: 0.5rem;
+}
+.custom-range .noUi-horizontal .noUi-handle {
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    top: -0.4rem;
+    right: -0.5rem;
+    border: 3px solid var(--bs-white);
+    border-radius: 50rem;
+    background: var(--bs-primary);
+    box-shadow: unset;
+}
+.custom-range .noUi-connect {
+    background: var(--bs-primary);
+}
+.custom-range .noUi-base {
+    background: var(--bs-border-color);
+}
+.custom-range .noUi-connects {
+    background: var(--bs-border-color);
+}
+.custom-range .noUi-target {
+    border-radius: 50%;
+}
+
+@import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+@import "select2/dist/css/select2.min.css";
+@import "node-snackbar/dist/snackbar.min.css";
+
+@import 'flatpickr/dist/flatpickr.min.css';

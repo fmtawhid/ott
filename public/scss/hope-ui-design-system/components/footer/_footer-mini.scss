@@ -1,0 +1,17 @@
+.footer {
+    font-size: $footer-font-size;
+    background: var(--bs-gray-900);
+    z-index: 9;
+    .footer-body {
+        padding: 1rem calc(var(--bs-gutter-x, 1rem) * 2);
+    }
+    &.sticky{
+        position: sticky;
+        bottom: 0;
+    }
+    &.glass{
+        background-color: rgba($white, .1);
+        border-top: 1px solid $white;
+        backdrop-filter: blur(10px);
+    }
+}

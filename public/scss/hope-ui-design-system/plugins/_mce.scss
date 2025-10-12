@@ -1,0 +1,52 @@
+.mce-panel {
+    background-color: var(--bs-gray-900); 
+    border-color: var(--bs-border-color);
+    .mce-container, 
+    .mce-container *, 
+    .mce-widget, 
+    .mce-widget *, 
+    .mce-reset,
+    .mce-btn button {
+    color: var(--bs-body-color);
+    }
+
+    .mce-btn {
+        border-color: var(--bs-border-color);
+        background: var(--bs-gray-900);
+    } 
+
+    .mce-menubar {
+        border-color: var(--bs-border-color);
+        .mce-menubtn {
+            button {
+            span {
+                color: var(--bs-body-color);
+            }
+            }
+        }
+    }
+
+    .mce-btn-group:not(:first-child) {
+        border-color: var(--bs-border-color);
+    }
+
+    .mce-menubar .mce-menubtn:hover, .mce-menubar .mce-menubtn.mce-active, .mce-menubar .mce-menubtn:focus {
+        background: var(--bs-body-bg);
+        border-color: var(--bs-border-color);  
+    }
+}
+
+.card {
+  .mce-panel {
+    background: var(--bs-body-bg); 
+    border-color: var(--bs-border-color);  
+    .mce-btn {
+        border-color: var(--bs-border-color);
+        background: var(--bs-body-bg);
+    }  
+    .mce-menubar .mce-menubtn:hover, .mce-menubar .mce-menubtn.mce-active, .mce-menubar .mce-menubtn:focus {
+        background: var(--bs-gray-900);
+        border-color: var(--bs-border-color);  
+    }   
+  }
+}

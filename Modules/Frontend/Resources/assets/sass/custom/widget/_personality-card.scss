@@ -1,0 +1,98 @@
+.cast-card {
+  .cast-image{
+    height: 220px;
+    width: 100%;
+    object-position: top;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.57%, #000000 100%);
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    border-radius: var(--border-radius);
+  }
+  .cast-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 25px;
+    z-index: 99;
+    color: var(--bs-heading-color);
+    font-weight: $font-weight-medium;
+    line-height: 28px;
+  }
+}
+
+// Actor Detail
+.actor-detail-card {
+  padding: 30px;
+  background-color: var(--bs-gray-900);
+
+  .actor-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .actor-description {
+    margin: 0 0 32px 0;
+  }
+
+  .actor-badge {
+    background-color: var(--bs-gray-800);
+    color: var(--bs-primary);
+    padding: 2px 12px;
+  }
+
+  .actor-desc {
+    i {
+      color: var(--bs-heading-color);
+    }
+  }
+}
+
+@include media-breakpoint-down(lg){
+  .cast-card {
+    .cast-image {
+      height: 180px;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .actor-detail-card {
+    padding: 15px;
+
+    .actor-description {
+      margin: 12px 0 16px 0;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .cast-card {
+    .cast-title {
+      bottom: 10px;
+    }
+  }
+}
+
+@media(max-width: 399.98px){
+  .cast-card {
+    .cast-image {
+      height: 150px;
+    }
+  }
+}
+
+@media(max-width: 319.98px) {
+  .cast-card {
+    .cast-image {
+      height: 130px;
+    }
+  }
+}

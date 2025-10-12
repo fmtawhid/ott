@@ -1,0 +1,26 @@
+// navs-pill
+
+.sidebar{
+    &.navs-pill{
+        .sidebar-body{
+            .nav-item {
+                &.static-item {
+                    padding: 0;
+                }
+                padding: 0;
+                .nav-link{
+                    padding: 0.5rem 1rem;
+                    border-top-right-radius: $border-radius-pill !important;
+                    border-bottom-right-radius: $border-radius-pill !important;
+                }
+                .sub-nav {
+                    .nav-item {
+                        .nav-link {
+                            padding-left: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

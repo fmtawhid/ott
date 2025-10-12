@@ -1,0 +1,46 @@
+.iq-card {
+    .block-images {
+        .card-description {
+            .genres-list {
+                li {
+                    &::after {
+                        right: auto;
+                        left: -19px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slick-item {
+    &.first {
+        .card-hover {
+            &:hover {
+                .block-images {
+                    transform: scale3d(1.1, 1.1, 1) translate3d(-12%, 0, 0) perspective(31.25em);
+                }
+            }
+        }
+    }
+
+    &.last {
+        .card-hover {
+            &:hover {
+                .block-images {
+                    transform: scale3d(1.1, 1.1, 1) translate3d(12%, 0, 0) perspective(31.25em);
+                }
+            }
+        }
+
+        &:has(+ .slick-slide) {
+            .card-hover {
+                &:hover {
+                    .block-images {
+                        transform: scale3d(1.1, 1.1, 1) translate3d(0, 0, 0) perspective(31.25rem);
+                    }
+                }
+            }
+        }
+    }
+}

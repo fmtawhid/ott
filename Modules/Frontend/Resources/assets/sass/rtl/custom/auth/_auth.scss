@@ -1,0 +1,9 @@
+.user-login-card {
+    .input-group {
+        .form-control {
+            &:focus {
+                border-color: transparent;
+            }
+        }
+    }
+}
