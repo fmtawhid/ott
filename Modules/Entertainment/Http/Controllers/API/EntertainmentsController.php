@@ -186,7 +186,7 @@ class EntertainmentsController extends Controller
             $responseData = new MovieDetailDataResource($movie);
         //     Cache::put($cacheKey, $responseData);
         // }
-//   dd( $responseData);
+  dd( $responseData);
 
         return response()->json([
             'status' => true,

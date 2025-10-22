@@ -12,7 +12,7 @@ use Modules\Episode\Models\Episode;
 use Modules\Genres\Models\Genres;
 use App\Models\Scopes\EntertainmentScope;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
-
+use Illuminate\Support\Str; 
 use Modules\Frontend\Models\PayPerView;
 
 class Entertainment extends BaseModel
@@ -36,6 +36,7 @@ class Entertainment extends BaseModel
 
     protected $fillable = [
     'name',
+    'slug', // <-- এটা যোগ করো
     'tmdb_id',
     'description',
     'trailer_url_type',
@@ -203,6 +204,18 @@ class Entertainment extends BaseModel
     protected static function boot()
     {
         parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->slug) && !empty($model->name)) {
+                $model->slug = Str::slug($model->name);
+
+                $originalSlug = $model->slug;
+                $count = 1;
+                while (self::where('slug', $model->slug)->exists()) {
+                    $model->slug = $originalSlug . '-' . $count++;
+                }
+            }
+        });
 
         static::deleting(function ($entertainment) {
 

@@ -44,9 +44,9 @@ class VideoController extends Controller
         return view('frontend::video', compact('sliders'));
     }
 
-    public function videoDetails(Request $request, $id)
+    public function videoDetails(Request $request, $slug)
     {
-        $videoId = $id;
+        $videoId = $slug;
         $userId = auth()->id();
         $cacheKey = 'video_' . $videoId . '_' .$request->profile_id;
 
@@ -54,8 +54,8 @@ class VideoController extends Controller
 
         if (!$data) {
             $video = Video::with('VideoStreamContentMappings', 'plan')
-                ->where('id', $videoId)
-                ->first();
+                ->where('slug', $videoId)
+                ->firstOrFail();
 
 
 
@@ -143,7 +143,7 @@ class VideoController extends Controller
                     ->exists();
     }
 
-    $entertainment = Video::findOrFail($id);
+    $entertainment = Video::findOrFail($videoId);
 
 
     return view('frontend::video_detail', compact('data', 'entertainmentType','entertainment'));

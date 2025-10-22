@@ -23,19 +23,22 @@
                       @if(!empty($data['genres']))
                       @foreach($data['genres'] as $genres)
                           <li>
-                              <a href="#" class="tag">{{ $genres['name'] }}</a>
+                              <a href="#" class="tag">{{ $genres['name'] ?? 'Hello empty Name' }}</a>
                           </li>
                       @endforeach
                   @endif
                   </ul>
                 </div>
                 <h4 class="mb-2">{{ $data['name'] }}</h4>
-                
                 <!-- <p class="mb-0 font-size-14 line-count-3">{!! $data['description'] !!}</p> -->
                 <p class="mb-0 font-size-14 line-count-3">
-                    {{ \Illuminate\Support\Str::limit(strip_tags($data['description']), 200, '...') }}
+                    {{ \Illuminate\Support\Str::limit(strip_tags($data['description'] ?? 'Hello Empty Description'), 200, '...') }}
                 </p>
-                
+
+
+
+
+
                 <ul class="list-inline mt-4 mb-0 mx-0 p-0 d-flex align-items-center flex-wrap gap-3">
 
                   <li>
@@ -79,8 +82,9 @@
                         <a href="{{
                             $slider['type'] == 'livetv' ? route('livetv-details', ['id' => $data['id']]) :
                             ($slider['type'] == 'video' ? route('video-details', ['id' => $data['id']]) :
-                            ($data['type'] == 'tvshow' ? route('tvshow-details', ['id' => $data['id']]) :
-                            route('movie-details', ['id' => $data['id']])))
+                            ($data['type'] == 'tvshow' ? route('tvshow-details', ['slug' => $data['slug']]) :
+                           route('movie-details', ['slug' => $data['slug'] ?? Str::slug($data['name'])])
+                            ))
                         }}" class="btn btn-primary">
                          <span class="d-flex align-items-center justify-content-center gap-2">
                              <span><i class="ph-fill ph-play"></i></span>

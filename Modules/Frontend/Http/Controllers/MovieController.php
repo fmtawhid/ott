@@ -183,126 +183,246 @@ public function moviesListByGenre($genre_id)
     }
 
 
-    public function movieDetails(Request $request, $id)
+//     public function movieDetails(Request $request, $id)
+//     {
+//         $continue_watch=false;
+//         if($request->has('continue_watch')){
+
+//             $continue_watch=true;
+//         }
+
+//         $movieId = $id;
+//         $userId = auth()->id();
+//         $cacheKey = 'movie_' . $movieId;
+
+//         $data = Cache::get($cacheKey);
+
+//         if (!$data) {
+//             $movie = Entertainment::where('id', $movieId)
+//                 ->with([
+//                     'entertainmentGenerMappings',
+//                     'plan',
+//                     'entertainmentReviews.user',
+//                     'entertainmentTalentMappings',
+//                     'entertainmentStreamContentMappings',
+//                     'entertainmentDownloadMappings',
+//                     'subtitles',
+//                     'entertainmentSubtitleMappings'
+//                 ])
+//                 ->first();
+
+//             $reviews = $movie->entertainmentReviews ?? collect();
+
+//             // Encrypt the trailer URL
+//             if (!empty($movie->trailer_url) && $movie->trailer_url_type != 'Local') {
+//                 $movie['trailer_url'] = Crypt::encryptString($movie->trailer_url);
+//             }
+
+//             if (!empty($movie->video_url_input) && $movie->video_upload_type != 'Local') {
+//                 $movie['video_url_input'] = Crypt::encryptString($movie->video_url_input);
+//             }
+
+//             if ($userId) {
+//                 $movie['is_watch_list'] = WatchList::where('entertainment_id', $movieId)
+//                     ->where('user_id', $userId)
+//                     ->exists();
+
+//                 $movie['subtitle_enable'] = Subtitle::where('entertainment_id', $movieId)->where('type', 'movie')->exists();
+
+//                 $movie['is_likes'] = Like::where('entertainment_id', $movieId)
+//                     ->where('user_id', $userId)
+//                     ->where('is_like', 1)
+//                     ->exists();
+
+//                 $movie['is_download'] = EntertainmentDownload::where('entertainment_id', $movieId)
+//                     ->where('user_id', $userId)
+//                     ->where('entertainment_type', 'movie')
+//                     ->where('is_download', 1)
+//                     ->exists();
+
+//                 $yourReview = $reviews->where('user_id', $userId)->first();
+
+//                 $movie['your_review'] = $yourReview;
+//                 $movie['reviews'] = $yourReview ? $reviews->where('user_id', '!=', $userId) : $reviews;
+
+//                 $movie['total_review'] = $movie->entertainmentReviews->count();
+
+//                 $continueWatch = ContinueWatch::where('entertainment_id', $movieId)
+//                     ->where('user_id', $userId)
+//                     ->where('entertainment_type', 'movie')
+//                     ->first();
+
+//                 $movie['continue_watch'] = $continueWatch;
+//             } else {
+//                 $movie['reviews'] = $reviews;
+//             }
+
+//             $genres = $movie->entertainmentGenerMappings;
+
+//             $genre_ids = $genres->pluck('genre_id')->toArray();
+//             $entertainment_ids = EntertainmentGenerMapping::whereIn('genre_id', $genre_ids)
+//                 ->pluck('entertainment_id')
+//                 ->toArray();
+//             $more_items = Entertainment::whereIn('id', $entertainment_ids)
+//                 ->where('type', 'movie')
+//                 ->where('status', 1)
+//                 ->limit(7)
+//                 ->get()
+//                 ->except($id);
+
+// // dd($movie);
+//             $data = new MovieDetailResource($movie);
+//             $data['more_items'] = MoviesResource::collection($more_items);
+
+
+
+//             // Cache the base data
+//             Cache::put($cacheKey, $data);
+//         }
+
+//         // Convert data to array for manipulation
+//         $data = $data->toArray($request);
+
+//         // Dynamically append more_items (non-cached)
+//         $movie = Entertainment::where('id', $movieId)
+//             ->with('entertainmentGenerMappings')
+//             ->first();
+
+//         $genres = $movie->entertainmentGenerMappings;
+//         $genre_ids = $genres->pluck('genre_id')->toArray();
+//         $entertainment_ids = EntertainmentGenerMapping::whereIn('genre_id', $genre_ids)
+//             ->pluck('entertainment_id')
+//             ->toArray();
+//         $more_items = Entertainment::whereIn('id', $entertainment_ids)
+//             ->where('type', 'movie')
+//             ->where('status', 1)
+//             ->limit(7)
+//             ->get()
+//             ->except($id);
+
+
+//         $data['more_items'] = MoviesResource::collection($more_items);
+
+//         if ($request->has('is_search') && $request->is_search == 1) {
+//             $user_id = auth()->user()->id ?? $request->user_id;
+
+//             if ($user_id) {
+//                 $currentProfile = GetCurrentProfile($user_id, $request);
+
+//                 if ($currentProfile) {
+//                     $existingSearch = UserSearchHistory::where('user_id', $user_id)
+//                         ->where('profile_id', $currentProfile)
+//                         ->where('search_query', $data['name'])
+//                         ->first();
+
+//                     if (!$existingSearch) {
+//                         UserSearchHistory::create([
+//                             'user_id' => $user_id,
+//                             'profile_id' => $currentProfile,
+//                             'search_query' => $data['name'],
+//                             'search_id' => $data['id'],
+//                             'type' => $data['type']
+//                         ]);
+//                     }
+//                 }
+//             }
+//         }
+
+//         $entertainment = Entertainment::findOrFail($id);
+
+//         return view('frontend::movieDetail', compact('data', 'continue_watch', 'entertainment'));
+//     }
+
+
+
+    public function movieDetails(Request $request, $slug)
     {
-        $continue_watch=false;
-        if($request->has('continue_watch')){
-
-            $continue_watch=true;
-        }
-
-        $movieId = $id;
+        $continue_watch = $request->has('continue_watch');
         $userId = auth()->id();
+
+        // Fetch movie by slug with relations
+        $movie = Entertainment::where('slug', $slug)
+            ->with([
+                'entertainmentGenerMappings',
+                'plan',
+                'entertainmentReviews.user',
+                'entertainmentTalentMappings',
+                'entertainmentStreamContentMappings',
+                'entertainmentDownloadMappings',
+                'subtitles',
+                'entertainmentSubtitleMappings'
+            ])
+            ->firstOrFail();
+
+        $movieId = $movie->id;
         $cacheKey = 'movie_' . $movieId;
 
-        $data = Cache::get($cacheKey);
+        // Get from cache or build Resource
+        $data = Cache::remember($cacheKey, 3600, function () use ($movie, $userId) {
 
-        if (!$data) {
-            $movie = Entertainment::where('id', $movieId)
-                ->with([
-                    'entertainmentGenerMappings',
-                    'plan',
-                    'entertainmentReviews.user',
-                    'entertainmentTalentMappings',
-                    'entertainmentStreamContentMappings',
-                    'entertainmentDownloadMappings',
-                    'subtitles',
-                    'entertainmentSubtitleMappings'
-                ])
-                ->first();
-
-            $reviews = $movie->entertainmentReviews ?? collect();
-
-            // Encrypt the trailer URL
+            // Encrypt URLs if not local
             if (!empty($movie->trailer_url) && $movie->trailer_url_type != 'Local') {
-                $movie['trailer_url'] = Crypt::encryptString($movie->trailer_url);
+                $movie->trailer_url = Crypt::encryptString($movie->trailer_url);
             }
 
             if (!empty($movie->video_url_input) && $movie->video_upload_type != 'Local') {
-                $movie['video_url_input'] = Crypt::encryptString($movie->video_url_input);
+                $movie->video_url_input = Crypt::encryptString($movie->video_url_input);
             }
 
+            // Set dynamic attributes for authenticated users
             if ($userId) {
-                $movie['is_watch_list'] = WatchList::where('entertainment_id', $movieId)
+                $movie->is_watch_list = WatchList::where('entertainment_id', $movie->id)
                     ->where('user_id', $userId)
                     ->exists();
 
-                $movie['subtitle_enable'] = Subtitle::where('entertainment_id', $movieId)->where('type', 'movie')->exists();
+                $movie->subtitle_enable = Subtitle::where('entertainment_id', $movie->id)
+                    ->where('type', 'movie')
+                    ->exists();
 
-                $movie['is_likes'] = Like::where('entertainment_id', $movieId)
+                $movie->is_likes = Like::where('entertainment_id', $movie->id)
                     ->where('user_id', $userId)
                     ->where('is_like', 1)
                     ->exists();
 
-                $movie['is_download'] = EntertainmentDownload::where('entertainment_id', $movieId)
+                $movie->is_download = EntertainmentDownload::where('entertainment_id', $movie->id)
                     ->where('user_id', $userId)
                     ->where('entertainment_type', 'movie')
                     ->where('is_download', 1)
                     ->exists();
 
-                $yourReview = $reviews->where('user_id', $userId)->first();
+                $movie->your_review = $movie->entertainmentReviews
+                    ->where('user_id', $userId)
+                    ->first();
 
-                $movie['your_review'] = $yourReview;
-                $movie['reviews'] = $yourReview ? $reviews->where('user_id', '!=', $userId) : $reviews;
+                $movie->total_review = $movie->entertainmentReviews->count();
 
-                $movie['total_review'] = $movie->entertainmentReviews->count();
-
-                $continueWatch = ContinueWatch::where('entertainment_id', $movieId)
+                $movie->continue_watch = ContinueWatch::where('entertainment_id', $movie->id)
                     ->where('user_id', $userId)
                     ->where('entertainment_type', 'movie')
                     ->first();
-
-                $movie['continue_watch'] = $continueWatch;
-            } else {
-                $movie['reviews'] = $reviews;
             }
 
-            $genres = $movie->entertainmentGenerMappings;
+            return new MovieDetailResource($movie);
+        });
 
-            $genre_ids = $genres->pluck('genre_id')->toArray();
-            $entertainment_ids = EntertainmentGenerMapping::whereIn('genre_id', $genre_ids)
-                ->pluck('entertainment_id')
-                ->toArray();
-            $more_items = Entertainment::whereIn('id', $entertainment_ids)
-                ->where('type', 'movie')
-                ->where('status', 1)
-                ->limit(7)
-                ->get()
-                ->except($id);
-
-// dd($movie);
-            $data = new MovieDetailResource($movie);
-            $data['more_items'] = MoviesResource::collection($more_items);
-
-
-
-            // Cache the base data
-            Cache::put($cacheKey, $data);
-        }
-
-        // Convert data to array for manipulation
-        $data = $data->toArray($request);
-
-        // Dynamically append more_items (non-cached)
-        $movie = Entertainment::where('id', $movieId)
-            ->with('entertainmentGenerMappings')
-            ->first();
-
+        // Append more items dynamically (non-cached)
         $genres = $movie->entertainmentGenerMappings;
         $genre_ids = $genres->pluck('genre_id')->toArray();
         $entertainment_ids = EntertainmentGenerMapping::whereIn('genre_id', $genre_ids)
             ->pluck('entertainment_id')
             ->toArray();
+
         $more_items = Entertainment::whereIn('id', $entertainment_ids)
             ->where('type', 'movie')
             ->where('status', 1)
             ->limit(7)
             ->get()
-            ->except($id);
+            ->except($movieId);
 
+        $dataArray = $data->toArray($request);
+        $dataArray['more_items'] = MoviesResource::collection($more_items);
 
-        $data['more_items'] = MoviesResource::collection($more_items);
-
+        // Handle search history if requested
         if ($request->has('is_search') && $request->is_search == 1) {
             $user_id = auth()->user()->id ?? $request->user_id;
 
@@ -312,28 +432,28 @@ public function moviesListByGenre($genre_id)
                 if ($currentProfile) {
                     $existingSearch = UserSearchHistory::where('user_id', $user_id)
                         ->where('profile_id', $currentProfile)
-                        ->where('search_query', $data['name'])
+                        ->where('search_query', $dataArray['name'])
                         ->first();
 
                     if (!$existingSearch) {
                         UserSearchHistory::create([
                             'user_id' => $user_id,
                             'profile_id' => $currentProfile,
-                            'search_query' => $data['name'],
-                            'search_id' => $data['id'],
-                            'type' => $data['type']
+                            'search_query' => $dataArray['name'],
+                            'search_id' => $dataArray['id'],
+                            'type' => $dataArray['type']
                         ]);
                     }
                 }
             }
         }
 
-        $entertainment = Entertainment::findOrFail($id);
-
-        return view('frontend::movieDetail', compact('data', 'continue_watch', 'entertainment'));
+        return view('frontend::movieDetail', [
+            'data' => $dataArray,
+            'continue_watch' => $continue_watch,
+            'entertainment' => $movie
+        ]);
     }
-
-
 
     public function liveTvDetails($id)
     {

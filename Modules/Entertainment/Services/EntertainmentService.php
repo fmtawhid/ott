@@ -7,7 +7,7 @@ use  Modules\Genres\Repositories\GenreRepositoryInterface;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Str;
 
 class EntertainmentService
 {
@@ -50,7 +50,10 @@ class EntertainmentService
             $data['video_url_input']=null;
         }
 
-
+        // slug তৈরি যদি না থাকে
+        if (!isset($data['slug']) || empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['name']);
+        }
         $entertainment = $this->entertainmentRepository->create($data);
 
         if (!empty($data['genres'])) {

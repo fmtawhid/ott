@@ -93,12 +93,12 @@ Route::post('/disable-security', function(Request $request) {
 Route::get('movies/genre/{genre_id}', [MovieController::class, 'moviesListByGenre'])->middleware('checkModule')->name('movies.genre');
 Route::get('movies/{language}', [MovieController::class, 'movieList'])->middleware('checkModule')->name('movies.language');
 Route::get('/movies', [MovieController::class, 'movieList'])->middleware('checkModule')->name('movies');
-Route::get('/movie/{id}', [MovieController::class, 'movieDetails'])->middleware('checkModule')->name('movie-details');
+Route::get('/movie/{slug}', [MovieController::class, 'movieDetails'])->middleware('checkModule')->name('movie-details');
 Route::get('/tv-shows', [TvShowController::class, 'tvShowList'])->middleware('checkModule')->name('tv-shows');
-Route::get('/tvshow-details/{id}', [TvShowController::class, 'tvshowDetail'])->middleware('checkModule')->name('tvshow-details');
+Route::get('/tvshow-details/{slug}', [TvShowController::class, 'tvshowDetail'])->middleware('checkModule')->name('tvshow-details');
 Route::get('/episode-details/{id}', [TvShowController::class, 'episodeDetail'])->middleware('checkModule')->name('episode-details');
 Route::get('/videos', [VideoController::class, 'videoList'])->middleware('checkModule')->name('videos');
-Route::get('/videos-details/{id}', [VideoController::class, 'videoDetails'])->middleware('checkModule')->name('video-detail');
+Route::get('/videos-details/{slug}', [VideoController::class, 'videoDetails'])->middleware('checkModule')->name('video-detail');
 Route::get('/pay-per-view', [PerviewPaymentController::class, 'peyPerView'])->name('pay-per-view');
 
 

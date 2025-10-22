@@ -77,6 +77,7 @@ class MovieDetailResource  extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'slug' => $this->slug, // <-- Add this line
             'description' => strip_tags($this->description),
             'trailer_url_type' => $this->trailer_url_type,
             'type' => $this->type,
@@ -110,8 +111,8 @@ class MovieDetailResource  extends JsonResource
             'total_review' => $this->total_review ?? 0,
             'genres' => GenresResource::collection($genre_data),
             // 'plans' => PlanResource::collection($plans),
-            'reviews' => ReviewResource::collection($this->reviews),
-            'three_reviews' => ReviewResource::collection($this->reviews->take(3)),
+            'reviews' => ReviewResource::collection($this->reviews ?? collect()),
+            'three_reviews' => ReviewResource::collection($this->reviews ?? collect()->take(3)),
             'video_links' => $this->entertainmentStreamContentMappings ?? null,
             'casts' => CastCrewListResource::collection($casts),
             'directors' => CastCrewListResource::collection($directors),

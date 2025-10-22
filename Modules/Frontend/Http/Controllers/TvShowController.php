@@ -174,83 +174,213 @@ class TvShowController extends Controller
         ));
     }
 
-    public function tvshowDetail(Request $request, $id)
-    {
+//     public function tvshowDetail(Request $request, $id)
+//     {
 
-        $tvshow_id = $id;
-        $userId = auth()->id();
+//         $tvshow_id = $id;
+//         $userId = auth()->id();
 
-        $cacheKey = 'tvshow_' . $tvshow_id;
+//         $cacheKey = 'tvshow_' . $tvshow_id;
 
-        $responseData = Cache::get($cacheKey);
-        if (!$responseData) {
-            $tvshow = Entertainment::where('id', $tvshow_id)
-                ->with([
-                    'entertainmentGenerMappings',
-                    'plan',
-                    'entertainmentReviews',
-                    'entertainmentTalentMappings',
-                    'season',
-                    'episode',
-                    'subtitles' => function($query) {
-                        $query->where('type', 'tvshow');
-                    }
-                ])
-                ->first();
+//         $responseData = Cache::get($cacheKey);
+//         if (!$responseData) {
+//             $tvshow = Entertainment::where('slug', $tvshow_id)
+//                 ->with([
+//                     'entertainmentGenerMappings',
+//                     'plan',
+//                     'entertainmentReviews',
+//                     'entertainmentTalentMappings',
+//                     'season',
+//                     'episode',
+//                     'subtitles' => function($query) {
+//                         $query->where('type', 'tvshow');
+//                     }
+//                 ])
+//                 ->first();
 
-            if (!$tvshow) {
-                return abort(404, 'TV show not found.');
-            }
+//             if (!$tvshow) {
+//                 return abort(404, 'TV show not found.');
+//             }
 
 
-            $tvshow['reviews'] = $tvshow->entertainmentReviews ?? null;
-            $tvshow['subtitles'] = $tvshow->subtitles ?? null;
+//             $tvshow['reviews'] = $tvshow->entertainmentReviews ?? null;
+//             $tvshow['subtitles'] = $tvshow->subtitles ?? null;
 
-            // Encrypt the trailer URL
-            if (!empty($tvshow->trailer_url) &&  $tvshow->trailer_url_type != 'Local') {
-                $tvshow['trailer_url'] = Crypt::encryptString($tvshow->trailer_url);
-            }
+//             // Encrypt the trailer URL
+//             if (!empty($tvshow->trailer_url) &&  $tvshow->trailer_url_type != 'Local') {
+//                 $tvshow['trailer_url'] = Crypt::encryptString($tvshow->trailer_url);
+//             }
 
-            if ($userId) {
-                $tvshow['user_id'] = $userId;
-                $tvshow['is_watch_list'] = WatchList::where('entertainment_id', $tvshow_id)
-                    ->where('user_id', $userId)
-                    ->exists();
-                // dd($tvshow);
-                $tvshow['is_likes'] = Like::where('entertainment_id', $tvshow_id)
-                    ->where('user_id', $userId)
-                    ->where('is_like', 1)
-                    ->exists();
-                $tvshow['your_review'] = $tvshow->entertainmentReviews ? $tvshow->entertainmentReviews->where('user_id', $userId)->first() : null;
+//             if ($userId) {
+//                 $tvshow['user_id'] = $userId;
+//                 $tvshow['is_watch_list'] = WatchList::where('entertainment_id', $tvshow_id)
+//                     ->where('user_id', $userId)
+//                     ->exists();
+//                 // dd($tvshow);
+//                 $tvshow['is_likes'] = Like::where('entertainment_id', $tvshow_id)
+//                     ->where('user_id', $userId)
+//                     ->where('is_like', 1)
+//                     ->exists();
+//                 $tvshow['your_review'] = $tvshow->entertainmentReviews ? $tvshow->entertainmentReviews->where('user_id', $userId)->first() : null;
 
-                if ($tvshow['your_review']) {
-                    $tvshow['reviews'] = $tvshow['reviews']->where('user_id', '!=', $userId);
+//                 if ($tvshow['your_review']) {
+//                     $tvshow['reviews'] = $tvshow['reviews']->where('user_id', '!=', $userId);
+//                 }
+//             }
+
+//             // Use TvshowDetailResource to format the response
+//             $responseData = new TvshowDetailResource($tvshow);
+//             Cache::put($cacheKey, $responseData);
+//         }
+
+//         // Convert response data to array
+//         $data = $responseData->toArray(request());
+
+//         $season_id = Season::where('entertainment_id', $tvshow_id)->value('id');
+
+//         $episode = Episode::where('entertainment_id', $tvshow_id)->where('season_id', $season_id)->with('entertainmentdata', 'plan', 'EpisodeStreamContentMapping', 'episodeDownloadMappings')->first();
+
+//         if ($episode == null) {
+//             abort(404);
+//         }
+
+//         $genre_ids = $episode && $episode->entertainmentData
+//             ? $episode->entertainmentData->entertainmentGenerMappings->pluck('genre_id')
+//             : collect();
+
+//         $episode['genre_data'] = Genres::whereIn('id', $genre_ids)->get();
+
+//         $episode['moreItems'] = Entertainment::where('type', 'tvshow')
+//             ->whereHas('entertainmentGenerMappings', function ($query) use ($genre_ids) {
+//                 $query->whereIn('genre_id', $genre_ids);
+//             })
+//             ->where('id', '!=', $episode->id)
+//             ->orderBy('id', 'desc')
+//             ->get();
+
+//         $episodeData = new EpisodeDetailResource($episode);
+//         $data['episodeData'] = $episodeData->toArray(request());
+// // dd($data['episodeData']);
+//         if ($request->has('is_search') && $request->is_search == 1) {
+//             $user_id = auth()->user()->id ?? $request->user_id;
+
+//             if ($user_id) {
+//                 $currentprofile = GetCurrentprofile($user_id, $request);
+
+//                 if ($currentprofile) {
+//                     $existingSearch = UserSearchHistory::where('user_id', $user_id)
+//                         ->where('profile_id', $currentprofile)
+//                         ->where('search_query', $data['name'])
+//                         ->first();
+
+//                     if (!$existingSearch) {
+//                         UserSearchHistory::create([
+//                             'user_id' => $user_id,
+//                             'profile_id' => $currentprofile,
+//                             'search_query' => $data['name'],
+//                             'search_id' => $data['id'],
+//                             'type' => $data['type']
+//                         ]);
+//                     }
+//                 }
+//             }
+//         }
+
+//         $entertainment = Entertainment::findOrFail($id);
+
+//         return view('frontend::tvshowDetail', compact('data','entertainment'));
+//     }
+
+    
+public function tvshowDetail(Request $request, $slug)
+{
+    $userId = auth()->id();
+    $cacheKey = 'tvshow_' . $slug;
+
+    // Try to get from cache
+    $responseData = Cache::get($cacheKey);
+    
+    if (!$responseData) {
+        // Fetch TV show by slug
+        $tvshow = Entertainment::where('slug', $slug)
+            ->with([
+                'entertainmentGenerMappings',
+                'plan',
+                'entertainmentReviews',
+                'entertainmentTalentMappings',
+                'season',
+                'episode',
+                'subtitles' => function($query) {
+                    $query->where('type', 'tvshow');
                 }
+            ])
+            ->firstOrFail(); // automatically 404 if not found
+
+        $tvshow_id = $tvshow->id; // integer ID for related queries
+
+        // Encrypt trailer URL if not Local
+        if (!empty($tvshow->trailer_url) && $tvshow->trailer_url_type != 'Local') {
+            $tvshow->trailer_url = Crypt::encryptString($tvshow->trailer_url);
+        }
+
+        // User-specific data
+        if ($userId) {
+            $tvshow->user_id = $userId;
+            $tvshow->is_watch_list = WatchList::where('entertainment_id', $tvshow_id)
+                ->where('user_id', $userId)
+                ->exists();
+
+            $tvshow->is_likes = Like::where('entertainment_id', $tvshow_id)
+                ->where('user_id', $userId)
+                ->where('is_like', 1)
+                ->exists();
+
+            $tvshow->your_review = $tvshow->entertainmentReviews ? 
+                $tvshow->entertainmentReviews->where('user_id', $userId)->first() 
+                : null;
+
+            if ($tvshow->your_review) {
+                $tvshow->reviews = $tvshow->entertainmentReviews->where('user_id', '!=', $userId);
             }
-
-            // Use TvshowDetailResource to format the response
-            $responseData = new TvshowDetailResource($tvshow);
-            Cache::put($cacheKey, $responseData);
         }
 
-        // Convert response data to array
-        $data = $responseData->toArray(request());
+        // Store the resource in cache
+        $responseData = new TvshowDetailResource($tvshow);
+        Cache::put($cacheKey, $responseData);
+    } else {
+        // If cached, get the TV show ID from cached resource
+        $tvshowArray = $responseData->toArray($request);
+        $tvshow = Entertainment::findOrFail($tvshowArray['id']);
+        $tvshow_id = $tvshow->id;
+    }
 
-        $season_id = Season::where('entertainment_id', $tvshow_id)->value('id');
+    $data = $responseData->toArray($request);
 
-        $episode = Episode::where('entertainment_id', $tvshow_id)->where('season_id', $season_id)->with('entertainmentdata', 'plan', 'EpisodeStreamContentMapping', 'episodeDownloadMappings')->first();
+    // Fetch season & episode using integer ID
+    $season_id = Season::where('entertainment_id', $tvshow_id)->value('id');
 
-        if ($episode == null) {
-            abort(404);
-        }
+    $episode = Episode::where('entertainment_id', $tvshow_id)
+        ->where('season_id', $season_id)
+        ->with('entertainmentdata', 'plan', 'EpisodeStreamContentMapping', 'episodeDownloadMappings')
+        ->first();
 
-        $genre_ids = $episode && $episode->entertainmentData
+    $episodeData = [
+        'id' => null,
+        'video_links' => [],
+        'video_upload_type' => '',
+        'video_url_input' => '',
+        'moreItems' => [],
+        'genre_data' => []
+    ];
+
+    if ($episode) {
+        $genre_ids = $episode->entertainmentData
             ? $episode->entertainmentData->entertainmentGenerMappings->pluck('genre_id')
             : collect();
 
-        $episode['genre_data'] = Genres::whereIn('id', $genre_ids)->get();
+        $episode->genre_data = Genres::whereIn('id', $genre_ids)->get();
 
-        $episode['moreItems'] = Entertainment::where('type', 'tvshow')
+        $episode->moreItems = Entertainment::where('type', 'tvshow')
             ->whereHas('entertainmentGenerMappings', function ($query) use ($genre_ids) {
                 $query->whereIn('genre_id', $genre_ids);
             })
@@ -258,38 +388,35 @@ class TvShowController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
-        $episodeData = new EpisodeDetailResource($episode);
-        $data['episodeData'] = $episodeData->toArray(request());
-// dd($data['episodeData']);
-        if ($request->has('is_search') && $request->is_search == 1) {
-            $user_id = auth()->user()->id ?? $request->user_id;
-
-            if ($user_id) {
-                $currentprofile = GetCurrentprofile($user_id, $request);
-
-                if ($currentprofile) {
-                    $existingSearch = UserSearchHistory::where('user_id', $user_id)
-                        ->where('profile_id', $currentprofile)
-                        ->where('search_query', $data['name'])
-                        ->first();
-
-                    if (!$existingSearch) {
-                        UserSearchHistory::create([
-                            'user_id' => $user_id,
-                            'profile_id' => $currentprofile,
-                            'search_query' => $data['name'],
-                            'search_id' => $data['id'],
-                            'type' => $data['type']
-                        ]);
-                    }
-                }
-            }
-        }
-
-        $entertainment = Entertainment::findOrFail($id);
-
-        return view('frontend::tvshowDetail', compact('data','entertainment'));
+        $episodeResource = new EpisodeDetailResource($episode);
+        $episodeData = $episodeResource->toArray($request);
     }
+
+    $data['episodeData'] = $episodeData;
+
+    // Ensure all required keys exist for Blade
+    $defaultKeys = [
+        'trailer_url', 'trailer_url_type', 'thumbnail_image', 'video_links', 'video_upload_type',
+        'video_url_input', 'enable_quality', 'casts', 'directors', 'three_reviews', 'more_items'
+    ];
+
+    foreach ($defaultKeys as $key) {
+        if (!isset($data[$key])) {
+            $data[$key] = $key === 'casts' || $key === 'directors' ? collect() : [];
+        }
+    }
+
+    // Fetch entertainment for Blade view
+    $entertainment = Entertainment::findOrFail($tvshow_id);
+
+    return view('frontend::tvshowDetail', compact('data', 'entertainment'));
+}
+
+
+
+
+
+
 
     public function episodeDetail(Request $request, $id)
     {
